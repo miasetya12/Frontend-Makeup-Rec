@@ -1,45 +1,44 @@
 import React from 'react';
-import '../css/Header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Header = ({ userId, setUserId }) => {
-    const navigate = useNavigate(); // Add useNavigate
-
-    const handleLogout = () => {
-        console.log("Logging out..."); // Log the logout action
-        setUserId(null); // Clear the user ID from state
-        localStorage.removeItem('userId'); // Clear user ID from local storage
-        navigate('/'); // Navigate to the home page
-    };
-
+const Header = ({ userId, handleLogout }) => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/review">Buy & Review</Link>
-                </li>
-                <li>
-                    <Link to="/get-recommendation">Get Recommendation</Link>
-                </li>
-                {!userId && (
-                    <>
-                        <li>
-                            <Link to="/login">Login</Link>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="container">
+                <Link className="navbar-brand" to="/">MyApp</Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav me-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        <li>
-                            <Link to="/register">Register</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/review">Buy & Review</Link>
                         </li>
-                    </>
-                )}
-                {userId && ( // Show logout button only if user is logged in
-                    <li>
-                        <button onClick={handleLogout}>Logout</button>
-                    </li>
-                )}
-            </ul>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/get-recommendation">Get Recommendation</Link>
+                        </li>
+                    </ul>
+                    <ul className="navbar-nav ms-auto">
+                        {!userId ? (
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/login">Login</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/register">Register</Link>
+                                </li>
+                            </>
+                        ) : (
+                            <li className="nav-item">
+                                <button className="btn btn-outline-light" onClick={handleLogout}>Logout</button>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+            </div>
         </nav>
     );
 };

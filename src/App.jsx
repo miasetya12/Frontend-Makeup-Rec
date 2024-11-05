@@ -9,6 +9,8 @@ import MainHome from './components/MainHome';
 import ProductDetail from './components/ProductDetail';
 import ProductRecommendations from './components/ProductRecommendations';
 
+
+
 const App = () => {
     const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
 

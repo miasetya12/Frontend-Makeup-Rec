@@ -1,56 +1,67 @@
-.header {
-    background-color: white;
-    padding: 1rem 2rem;
+/* General nav styling */
+nav {
+    background-color: black;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid black;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.nav-links {
+ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
-    font-size: 1rem;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    position: relative;
+}
+
+/* nav-left links without borders but with underline on hover */
+.nav-left li a {
+    text-decoration: none;
+    color: black;
     font-weight: bold;
+    position: relative;
+    /* Necessary for the ::after to position correctly */
 }
 
-.nav-item {
-    cursor: pointer;
+/* Hover underline effect for nav-left links */
+.nav-left li a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    bottom: -2px;
+    left: 0;
 }
 
-.nav-item.active {
-    text-decoration: underline;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.login-button,
-.register-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+/* nav-right links with borders */
+.nav-right li a,
+.nav-right li button {
+    text-decoration: none;
+    color: black;
     font-weight: bold;
-    cursor: pointer;
-    border: none;
+    padding: 5px 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
 }
 
-.login-button {
+/* Hover effect for nav-right links and button without underline */
+.nav-right li a:hover,
+.nav-right li button:hover {
     background-color: black;
     color: white;
 }
 
-.register-button {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+/* Default styling for the logout button in nav-right */
+.nav-right li button {
+    color: white;
+    background-color: black;
+    cursor: pointer;
 }

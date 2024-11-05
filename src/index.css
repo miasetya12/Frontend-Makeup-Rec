@@ -1,24 +1,106 @@
+/* Navbar styling */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  align-items: center;
+  padding: 10px 20px;
   background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
 }
 
+/* Grid layout for products */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increased min-width for larger images */
+  gap: 20px;
   padding: 20px;
+  background-color: #fafafa; /* Subtle background color */
 }
 
+/* Individual product card */
 .product-card {
-  border: 1px solid #ccc;
-  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Crop image if it overflows */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+  background-color: #fff;
   text-align: center;
+  padding: 10px;
 }
 
-img {
+.product-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.product-card img {
   max-width: 100%;
   height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Add this to Header.css or another relevant CSS file */
+
+/* Container for maintaining a 1:1 aspect ratio for images */
+.product-card .image-container {
+  width: 100%;
+  padding-top: 100%;
+  /* 1:1 aspect ratio */
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  /* Match with the card's rounded corners */
+  margin-bottom: 10px;
+}
+
+.product-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures image fills the container without distortion */
+  border-radius: 4px;
+}
+
+/* ProductCard.css */
+
+/* Hapus garis bawah pada link */
+.product-link {
+  text-decoration: none;
+  /* Menghilangkan garis bawah */
+  color: inherit;
+  /* Menggunakan warna teks dari elemen induk */
+}
+
+/* Individual product card */
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  overflow: hidden;
+  /* Crop image if it overflows */
+  transition: transform 0.2s, box-shadow 0.2s;
+  /* Smooth hover effect */
+  background-color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* ... Gaya lain tetap sama ... */
