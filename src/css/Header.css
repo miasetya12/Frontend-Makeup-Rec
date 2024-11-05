@@ -1,0 +1,56 @@
+.header {
+    background-color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.nav-item.active {
+    text-decoration: underline;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.login-button,
+.register-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.login-button {
+    background-color: black;
+    color: white;
+}
+
+.register-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}

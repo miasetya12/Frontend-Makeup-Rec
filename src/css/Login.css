@@ -1,0 +1,60 @@
+/* Mengatur layar utama sebagai latar belakang semi-transparan */
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Latar belakang semi-transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    /* Pastikan berada di depan konten lain */
+}
+
+/* Mengatur tampilan form login sebagai pop-up */
+.login-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+    /* height: 250px; */
+}
+
+/* Gaya untuk input dan tombol */
+.login-input {
+    width: 80%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.login-button {
+    width: 80%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.login-button:hover {
+    background-color: #555;
+}
+
+.back-button {
+    width: 80%;
+    padding: 0.75rem;
+    background-color: #37193f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
