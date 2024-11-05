@@ -87,7 +87,9 @@ const Review = ({ userId }) => {
         const fetchReviews = async () => {
             if (userId) {
                 try {
-                    const response = await axios.get(`http://localhost:5000/reviews/${userId}`);
+                   
+                    // const response = await axios.get(`http://localhost:5000/reviews/${userId}`);
+                    const response = await axios.get(` https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/reviews/${userId}`);
                     setReviews(response.data.reviews);
                 } catch (error) {
                     console.error(error);
@@ -101,7 +103,9 @@ const Review = ({ userId }) => {
 
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/products');
+                
+                // const response = await fetch('http://localhost:5000/products');
+                const response = await fetch(' https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/products');
                 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

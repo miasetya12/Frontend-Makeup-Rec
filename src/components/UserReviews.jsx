@@ -55,7 +55,9 @@ const UserReviews = ({ userId }) => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/reviews/${userId}`);
+                 
+                // const response = await axios.get(`http://localhost:5000/reviews/${userId}`);
+                const response = await axios.get(`https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/reviews/${userId}`);
                 setReviews(response.data.reviews);
             } catch (error) {
                 console.error(error);

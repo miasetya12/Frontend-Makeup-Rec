@@ -9,7 +9,8 @@ const Register = ({ onRegister }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/register', { name, username });
+            const response = await axios.post('https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/register', { name, username });
+            // const response = await axios.post('http://localhost:5000/register', { name, username });
             onRegister(response.data.user_id); // Mengupdate user_id setelah registrasi sukses
             toast.success(response.data.message);
         } catch (error) {

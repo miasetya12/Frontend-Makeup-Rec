@@ -15,7 +15,9 @@ const ProductRecommendations = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/recommend/word2vec', {
+               
+                // const response = await axios.get('http://127.0.0.1:5000/recommend/word2vec', {
+                const response = await axios.get('https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/recommend/word2vec', {
                     params: {
                         target_product_id: targetProductId, // Match with the Flask API
                         skin_type: skinType,

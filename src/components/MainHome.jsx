@@ -8,7 +8,9 @@ const MainHome = ({ userId, setUserId }) => { // Accept setUserId as a prop
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/products');
+                
+                // const response = await fetch('http://localhost:5000/products');
+                const response = await fetch('https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/products');
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
