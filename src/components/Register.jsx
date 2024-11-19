@@ -1,23 +1,36 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Register = ({ onRegister }) => {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
+    const [skintone, setSkintone] = useState('');
+    const [skintype, setSkintype] = useState('');
+    const [undertone, setUndertone] = useState('');
+    const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/register', { name, username });
-            // const response = await axios.post('http://localhost:5000/register', { name, username });
+            const response = await axios.post('http://127.0.0.1:5000/register', { 
+                name, 
+                username, 
+                skintone, 
+                skintype, 
+                undertone 
+            });
             onRegister(response.data.user_id); // Mengupdate user_id setelah registrasi sukses
-            toast.success(response.data.message);
+            
+            // Menyesuaikan pesan sukses
+            toast.success(`Pendaftaran berhasil! Selamat datang, ${name}!`);
+            navigate('/login'); // Kembali ke halaman login setelah berhasil registrasi
         } catch (error) {
             if (error.response) {
                 toast.error(error.response.data.error);
             } else {
-                toast.error('Registration failed. Please try again.');
+                toast.error('Pendaftaran gagal. Silakan coba lagi.');
             }
         }
     };
@@ -37,6 +50,27 @@ const Register = ({ onRegister }) => {
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                required
+            />
+            <input
+                type="text"
+                placeholder="Skintone"
+                value={skintone}
+                onChange={(e) => setSkintone(e.target.value)}
+                required
+            />
+            <input
+                type="text"
+                placeholder="Skintype"
+                value={skintype}
+                onChange={(e) => setSkintype(e.target.value)}
+                required
+            />
+            <input
+                type="text"
+                placeholder="Undertone"
+                value={undertone}
+                onChange={(e) => setUndertone(e.target.value)}
                 required
             />
             <button type="submit">Register</button>

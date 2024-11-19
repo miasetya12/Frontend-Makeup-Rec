@@ -1,0 +1,48 @@
+.scenario-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.form-container {
+    flex: 1;
+}
+
+.result-container {
+    flex: 1;
+    margin-top: 20px;
+}
+
+form>div {
+    margin-bottom: 15px;
+}
+
+select {
+    margin-left: 10px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    .scenario-container {
+        flex-direction: column;
+        /* Stack vertically */
+        align-items: flex-start;
+    }
+
+    .form-container,
+    .result-container {
+        width: 100%;
+    }
+
+    .result-container {
+        margin-top: 30px;
+        /* Add more space between form and results on small screens */
+    }
+
+    select {
+        width: 100%;
+        /* Make the dropdowns full-width */
+    }
+}

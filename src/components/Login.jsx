@@ -11,8 +11,7 @@ const Login = ({ setUserId }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            
-             const response = await axios.post('https://flask-backend-ta-e62ef4a96bf0.herokuapp.com/login', { username });
+            const response = await axios.post('http://127.0.0.1:5000/login', { username });
             // const response = await axios.post('http://localhost:5000/login', { username });
             setUserId(response.data.user_id); // Set userId in state
             localStorage.setItem('userId', response.data.user_id); // Save userId to localStorage
@@ -23,26 +22,29 @@ const Login = ({ setUserId }) => {
         }
     };
 
+    // Function to handle back navigation
+    const handleBack = () => {
+        navigate('/'); // Navigate back to home
+    };
+
     return (
-            <div className="modal-background">
-                <div className="login-container">
-                    <form onSubmit={handleLogin} className="login-form">
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            placeholder="Username"
-                            required
-                            className="login-input"
-                        />
-                        <button type="submit" className="login-button">Login</button>
-                         <button type='button' className="back-button">Back</button>
-                    </form>
-                </div>
+        <div className="modal-background">
+            <div className="login-container">
+                <form onSubmit={handleLogin} className="login-form">
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        required
+                        className="login-input"
+                    />
+                    <button type="submit" className="login-button">Login</button>
+                    <button type='button' onClick={handleBack} className="back-button">Back</button>
+                </form>
             </div>
-        );
+        </div>
+    );
 };
-
-
 
 export default Login;

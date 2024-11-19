@@ -9,8 +9,6 @@ import MainHome from './components/MainHome';
 import ProductDetail from './components/ProductDetail';
 import ProductRecommendations from './components/ProductRecommendations';
 
-
-
 const App = () => {
     const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
 
@@ -28,20 +26,19 @@ const App = () => {
                 <Route path="/login" element={<Login setUserId={setUserId} />} />
                 <Route 
                     path="/" 
-                    element={<MainHome userId={userId} setUserId={setUserId} />} // Pass setUserId
+                    element={<MainHome userId={userId} setUserId={setUserId} />} 
                 />
                 <Route path="/register" element={<Register />} />
-                <Route path="/review" element={<Review userId={userId} />} />
-                <Route path="/header" element={<Header />} />
-                <Route path="/reviews/:userId" element={<UserReviews userId={userId} />} />
-                <Route path="/product/:product_id" element={<ProductDetail />} />
                 <Route 
-                    path="/buy-review" 
-                    element={<h2>Buy & Review Page</h2>} 
+                    path="/review" 
+                    element={userId ? <Review userId={userId} setUserId={setUserId}/> : <Navigate to="/login" />}
                 />
+                <Route path="/reviews/:userId" element={<UserReviews userId={userId} />} />
+                <Route path="/product/:product_id" element={<ProductDetail userId={userId}/>} />
+                {/* <Route path="/product/:product_id" element={userId ? <ProductDetail userId={userId} setUserId={setUserId}} /> */}
                 <Route 
                     path="/get-recommendation" 
-                    element={userId ? <ProductRecommendations /> : <Navigate to="/login" />} // Redirect to login if not logged in
+                    element={userId ? <ProductRecommendations userId={userId} setUserId={setUserId} /> : <Navigate to="/login" />} 
                 />
             </Routes>
         </Router>

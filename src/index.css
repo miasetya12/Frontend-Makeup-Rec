@@ -8,99 +8,301 @@ nav {
   border-bottom: 1px solid #ddd;
 }
 
+.api-recommendation-box {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  text-align: center;
+}
 /* Grid layout for products */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increased min-width for larger images */
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
   padding: 20px;
-  background-color: #fafafa; /* Subtle background color */
+  background-color: #fafafa;
 }
 
-/* Individual product card */
 .product-card {
   border: 1px solid #e0e0e0;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow: hidden; /* Crop image if it overflows */
-  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
   background-color: #fff;
   text-align: center;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.product-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* Menampilkan 5 produk per baris */
+  gap: 20px;
+  /* Jarak antar produk */
+}
+
+.product-card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.scenario-title {
+  grid-column: span 5;
+  /* Membuat judul skenario mencakup 5 kolom */
+  text-align: center;
+  font-weight: bold;
+}
+
+/* .scenario-title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+} */
+
 
 .product-card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.product-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-.product-card h3 {
-  font-size: 1.1rem;
-  margin: 10px 0 5px;
-  color: #333;
-}
-
-.product-card p {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Add this to Header.css or another relevant CSS file */
-
-/* Container for maintaining a 1:1 aspect ratio for images */
+/* Container for maintaining a consistent height for images */
 .product-card .image-container {
   width: 100%;
-  padding-top: 100%;
-  /* 1:1 aspect ratio */
+  height: 150px;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
-  /* Match with the card's rounded corners */
   margin-bottom: 10px;
 }
 
 .product-card img {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
-  /* Ensures image fills the container without distortion */
-  border-radius: 4px;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
 }
 
-/* ProductCard.css */
+/* Product name with line-clamping */
+.product-card h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.6em;
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+  color: #333;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 2;
+}
+
+/* Product description */
+.product-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
 
 /* Hapus garis bawah pada link */
 .product-link {
   text-decoration: none;
-  /* Menghilangkan garis bawah */
   color: inherit;
-  /* Menggunakan warna teks dari elemen induk */
 }
 
-/* Individual product card */
-.product-card {
-  border: 1px solid #e0e0e0;
+/* Default styling for larger screens */
+.product-name,
+.product-brand,
+.product-shade,
+.product-price,
+.product-stars {
+  display: block;
+}
+
+/* Style for the form container */
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
   border-radius: 8px;
-  /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for depth */
-  overflow: hidden;
-  /* Crop image if it overflows */
-  transition: transform 0.2s, box-shadow 0.2s;
-  /* Smooth hover effect */
-  background-color: #fff;
-  text-align: center;
-  padding: 10px;
 }
 
-/* ... Gaya lain tetap sama ... */
+/* Style for individual form labels and inputs */
+.input-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-form input,
+.input-form select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-form select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hover effect for inputs and select dropdowns */
+.input-form select:hover,
+.input-form input[type="text"]:hover,
+.input-form input[type="number"]:hover {
+  border-color: #007bff;
+}
+
+/* Focus effect for inputs and select dropdowns */
+.input-form select:focus,
+.input-form input[type="text"]:focus,
+.input-form input[type="number"]:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+/* Style for the buttons container */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Style for individual buttons */
+.button-container button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  width: 48%;
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}
+
+.button-container button:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+/* Container untuk tombol thumbs-up dan thumbs-down */
+.thumbs-container {
+  display: flex;
+  justify-content: center;
+  /* Untuk menempatkan tombol di tengah */
+  gap: 15px;
+  /* Memberikan jarak antar tombol */
+  align-items: center;
+  /* Untuk menyejajarkan tombol secara vertikal */
+}
+
+/* Tombol thumbs-up dan thumbs-down */
+.thumbs-up-button,
+.thumbs-down-button {
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  /* Menambahkan efek transformasi */
+}
+
+/* Warna dan efek ketika tombol thumbs-up dan thumbs-down diklik */
+.thumbs-up-button.clicked,
+.thumbs-down-button.clicked {
+  transform: scale(1.1);
+  /* Efek scale saat tombol diklik */
+}
+
+/* Warna default untuk tombol thumbs-up dan thumbs-down */
+.thumbs-up-button,
+.thumbs-down-button {
+  color: gray;
+}
+
+/* Warna tombol thumbs-up saat diklik */
+.thumbs-up-button.clicked {
+  color: #3a6d59;
+  /* Hijau */
+}
+
+/* Warna tombol thumbs-down saat diklik */
+.thumbs-down-button.clicked {
+  color: #d9262f;
+  /* Merah */
+}
+
+.api-section {
+  margin-top: 10px;
+  text-align: center;
+  padding: 5px;
+}
+
+.api-section h4 {
+  font-size: 14px;
+  color: #777;
+  font-weight: normal;
+}
+
+
+/* Responsively adjust text and layout for smaller screens */
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-card {
+    padding: 12px;
+  }
+
+  .product-card img {
+    max-width: 120px;
+  }
+
+  .product-price,
+  .product-stars {
+    display: none;
+  }
+
+  .product-name {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .product-brand,
+  .product-shade {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+}

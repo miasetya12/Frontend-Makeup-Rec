@@ -1,11 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Header = ({ userId, handleLogout }) => {
+const Header = ({ userId, setUserId }) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        console.log("Logging out...");
+        setUserId(null);
+        localStorage.removeItem('userId');
+        navigate('/');
+    };
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
-                <Link className="navbar-brand" to="/">MyApp</Link>
+                <Link className="navbar-brand" to="/">Get Your Makeup</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -33,7 +43,7 @@ const Header = ({ userId, handleLogout }) => {
                             </>
                         ) : (
                             <li className="nav-item">
-                                <button className="btn btn-outline-light" onClick={handleLogout}>Logout</button>
+                                <button className="btn btn-outline-danger" onClick={handleLogout}>Logout</button>
                             </li>
                         )}
                     </ul>
