@@ -484,13 +484,20 @@ const ProductRecommendations = ({ userId, setUserId }) => {
                 { cbfWeight: 0, cfWeight: 1 },
                 { cbfWeight: 1 / 5, cfWeight: 4 / 5 },
                 { cbfWeight: 1 / 3, cfWeight: 2 / 3 },
-                { cbfWeight: 1, cfWeight: 1 },
+                { cbfWeight: 1/2, cfWeight: 1/2 },
                 { cbfWeight: 2 / 3, cfWeight: 1 / 3 },
                 { cbfWeight: 4 / 5, cfWeight: 1 / 5 },
+                // { cbfWeight: 0.2, cfWeight: 0.9 },
+                // { cbfWeight: 0.3, cfWeight: 0.7 },
+                // { cbfWeight: 0.5, cfWeight: 0.5 },
+                // { cbfWeight: 0.7, cfWeight: 0.3 },
+                // { cbfWeight: 0.9, cfWeight: 0.1 },
+
                 { cbfWeight: 1, cfWeight: 0 },
             ];
 
-            const apiName = 'hybrid_kombinasi_75'; // Nama API yang sedang digunakan
+            //const apiName = 'hybrid_kombinasi_75'; // Nama API yang sedang digunakan
+             const apiName = 'hybrid_tfidf'; // Nama API yang sedang digunakan
 
             const recommendations = await Promise.all(
                 weightConfigs.map(async (config) => {
