@@ -482,11 +482,11 @@ const ProductRecommendations = ({ userId, setUserId }) => {
         try {
             const weightConfigs = [
                 { cbfWeight: 0, cfWeight: 1 },
-                { cbfWeight: 1 / 5, cfWeight: 4 / 5 },
-                { cbfWeight: 1 / 3, cfWeight: 2 / 3 },
-                { cbfWeight: 1/2, cfWeight: 1/2 },
-                { cbfWeight: 2 / 3, cfWeight: 1 / 3 },
-                { cbfWeight: 4 / 5, cfWeight: 1 / 5 },
+                { cbfWeight: 0.2, cfWeight: 0.8 },
+                { cbfWeight: 0.33, cfWeight: 0.66 },
+                { cbfWeight: 0.5, cfWeight: 0.5 },
+                { cbfWeight: 0.66, cfWeight: 0.33 },
+                { cbfWeight: 0.8, cfWeight: 0.2},
                 // { cbfWeight: 0.2, cfWeight: 0.9 },
                 // { cbfWeight: 0.3, cfWeight: 0.7 },
                 // { cbfWeight: 0.5, cfWeight: 0.5 },
@@ -496,8 +496,9 @@ const ProductRecommendations = ({ userId, setUserId }) => {
                 { cbfWeight: 1, cfWeight: 0 },
             ];
 
-            //const apiName = 'hybrid_kombinasi_75'; // Nama API yang sedang digunakan
-             const apiName = 'hybrid_tfidf'; // Nama API yang sedang digunakan
+    //const apiName = 'hybrid_kombinasi_75'; // Nama API yang sedang digunakan
+          const apiName = 'hybrid_tfidf'; // Nama API yang sedang digunakan
+            //const apiName = 'hybrid_word2vec_75';
 
             const recommendations = await Promise.all(
                 weightConfigs.map(async (config) => {

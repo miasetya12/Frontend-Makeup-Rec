@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product_id, image, name, brand, shade, price, stars }) => {
-    // Generate an array of stars based on the rating
+    // Generate an array of stars based on the order
     const renderStars = (stars) => {
         return [...Array(stars)].map((_, index) => (
             <span key={index} className="star">⭐</span>
