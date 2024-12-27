@@ -1,15 +1,13 @@
 /* Navbar styling */
-
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: red;
+  background: #f8f8f8;
   border-bottom: 1px solid #ddd;
 }
 .main-page{
-  margin-top: 30px;
   padding-right: 50px;
   padding-left: 50px;
 }
@@ -22,23 +20,6 @@ nav {
   margin-bottom: 20px;
 }
 
-.container {
-  width: 100vw;
-  /* Mengatur lebar container sesuai viewport */
-  max-width: 100%;
-  /* Pastikan tidak ada batas maksimal lebar */
-  padding: 0;
-  /* Hapus padding default */
-  margin: 0;
-  /* Hapus margin default */
-  z-index: 1002;
-  /* border: 1px solid red; */
-  /* Hanya untuk visualisasi */
-}
-.container-3{
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 .search-bar {
   display: flex;
   align-items: center;
@@ -376,11 +357,11 @@ nav {
 
 .navbar {
   background-color: #954caf;
+  /* Green background for navbar */
   padding: 10px 20px;
-  height: 80px;
+  height: 100px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 .navbar .navbar-brand {
   font-size: 24px;
@@ -395,13 +376,8 @@ nav {
   color: #e0e0e0;
 }
 
-.navbar-nav {
-  display: flex;
-  gap: 1rem;
-  /* Jarak antar item */
-}
 .navbar .nav-link {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: white;
   transition: color 0.3s ease;
@@ -412,17 +388,14 @@ nav {
 }
 
 .navbar .navbar-toggler {
-  border-color: #ffffff;
-  background-color: #ffffff;
-  position: relative;
-  /* Pastikan posisi terdefinisi */
- 
-  /* Z-index tinggi untuk membawa elemen ke depan */
+  /* border-color: #ffffff; */
+  background-color: #fff;
+
 }
 
-.navbar .navbar-toggler-icon {
+/* .navbar .navbar-toggler-icon {
   background-color: white;
-}
+} */
 
 .navbar .navbar-nav .nav-item {
   margin-right: 20px;
@@ -438,120 +411,11 @@ nav {
   background-color: #d9534f;
   font-weight: bold;
 }
-.navbar .collapse {
-  background-color: #954caf;
-  /* Menambahkan transisi pada max-height */
-}
+
 .navbar .btn-outline-danger:hover {
   background-color: #ff000d;
   color: white;
   border-color: #ff000d;
-}
-
-/* Modal Background */
-/* .modal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-} */
-
-/* Login Container */
-.login-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
-}
-
-/* Form Styling */
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-/* Input Field */
-.login-input {
-  /* padding: 12px; */
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  outline: none;
-  width: 100%;
-  transition: border-color 0.3s ease;
-}
-
-.login-input:focus {
-  border-color: #954caf;
-  /* Green border when focused */
-}
-
-/* Buttons Container */
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Button Styling */
-.login-button,
-.back-button {
-  padding: 12px;
-  height: 50px;
-  font-size: 16px;
-  border: none;
-  /* Border is removed */
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex: 1;
-  /* Makes both buttons take equal space */
-}
-.login-regis {
-  display: flex;
-  justify-content: space-between;
-  /* Ensures space between buttons */
-  gap: 10px;
-  width: 100%;
-  /* Adds a gap between buttons */
-}
-.login-button {
-  background-color: #954caf;
-  color: white;
-  font-weight: bold;
-}
-
-.login-button:hover {
-  background-color: #954caf;
-}
-
-.back-button {
-  background-color: #f44336;
-  color: white;
-  font-weight: bold;
-}
-
-.back-button:hover {
-  background-color: #e53935;
-}
-
-/* Toast Notification Styling */
-.toast-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  width: auto;
 }
 /* Responsively adjust text and layout for smaller screens */
 @media (max-width: 600px) {
@@ -609,17 +473,4 @@ nav {
     .navbar .navbar-nav .nav-item:last-child {
         margin-bottom: 0;
     }
-         .login-container {
-           width: 90%;
-           padding: 30px 20px;
-         }
-    
-         .login-input {
-           font-size: 14px;
-         }
-    
-         .login-button,
-         .back-button {
-           font-size: 14px;
-         }
 }

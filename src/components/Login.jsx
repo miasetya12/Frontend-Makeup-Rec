@@ -39,8 +39,10 @@ const Login = ({ setUserId }) => {
                         required
                         className="login-input"
                     />
+                    <div className="login-regis">
                     <button type="submit" className="login-button">Login</button>
                     <button type='button' onClick={handleBack} className="back-button">Back</button>
+                    </div>
                 </form>
             </div>
         </div>

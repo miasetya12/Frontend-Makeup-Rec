@@ -55,10 +55,13 @@ const Review = ({ userId, setUserId }) => {
 
     return (
         <div>
-             <Header userId={userId} setUserId={setUserId}/> {/* Pass userId and setUserId */}
-            <h2>Hello, User {userId}</h2>
-            <h3>Your Reviews:</h3>
-
+            
+            <Header userId={userId} setUserId={setUserId}/> {/* Pass userId and setUserId */}
+            <div className="main-page">
+            {/* <h2>Hello, User {userId}</h2> */}
+            <div className="container-3">
+             <h3>Your Products Review (User {userId})</h3>
+            </div>
             <div className="product-grid">
                 {reviews.length > 0 ? (
                     reviews.map((review) => {
@@ -84,6 +87,7 @@ const Review = ({ userId, setUserId }) => {
                     <p>No reviews found.</p>
                 )}
             </div>
+        </div>
         </div>
     );
 

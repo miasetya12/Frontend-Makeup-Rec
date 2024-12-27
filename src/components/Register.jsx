@@ -34,16 +34,24 @@ const Register = ({ onRegister }) => {
             }
         }
     };
+      const handleBack = () => {
+        navigate('/'); // Navigate back to home
+    };
+
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="modal-background">
+             <div className="login-container">
+        <form onSubmit={handleSubmit} className="login-form">
             <h2>Register</h2>
             <input
+
                 type="text"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
+                className="login-input"
             />
             <input
                 type="text"
@@ -51,6 +59,7 @@ const Register = ({ onRegister }) => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
+                className="login-input"
             />
             <input
                 type="text"
@@ -58,6 +67,7 @@ const Register = ({ onRegister }) => {
                 value={skintone}
                 onChange={(e) => setSkintone(e.target.value)}
                 required
+                className="login-input"
             />
             <input
                 type="text"
@@ -65,6 +75,7 @@ const Register = ({ onRegister }) => {
                 value={skintype}
                 onChange={(e) => setSkintype(e.target.value)}
                 required
+                className="login-input"
             />
             <input
                 type="text"
@@ -72,9 +83,15 @@ const Register = ({ onRegister }) => {
                 value={undertone}
                 onChange={(e) => setUndertone(e.target.value)}
                 required
+                className="login-input"
             />
-            <button type="submit">Register</button>
+             <div className="login-regis">
+                    <button type="submit" className="login-button">Register</button>
+                    <button type='button' onClick={handleBack} className="back-button">Back</button>
+            </div>
         </form>
+        </div>
+        </div>
     );
 };
 

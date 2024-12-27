@@ -52,56 +52,6 @@ const MainHome = ({ userId, setUserId }) => {
         fetchAllProducts();
     }, []); 
 
-    // const handleSearch = () => {
-    //     setLoading(true);
-    //     // Function to check if all query words are present in product name or brand name, regardless of order
-    //     const isQueryMatch = (productName, brandName, query) => {
-    //         const queryWords = query.toLowerCase().split(' ').filter(word => word.trim() !== "");
-
-    //         // Check if each word from the query is present in product name or brand name
-    //         const productString = productName.toLowerCase();
-    //         const brandString = brandName.toLowerCase();
-
-    //         // Check if each query word exists in the product or brand name
-    //         return queryWords.every(word => productString.includes(word) || brandString.includes(word));
-    //     };
-
-    //     // Filter products based on the search query
-    //     const filtered = allProducts.filter(product => {
-    //         return isQueryMatch(product.product_name, product.brand_name, searchQuery);
-    //     });
-
-    //     setFilteredProducts(filtered);
-
-    //     // Paginate the filtered products
-    //     const indexOfLastProduct = currentPage * productsPerPage;
-    //     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    //     const currentProducts = filtered.slice(indexOfFirstProduct, indexOfLastProduct);
-
-    //     setProducts(currentProducts);
-
-    //     // Update totalPages based on the filtered products
-    //     const filteredTotalPages = Math.ceil(filtered.length / productsPerPage);
-    //     setTotalPages(filteredTotalPages); // Store the total pages based on filtered products
-
-    //     setLoading(false);
-    // };
-
-    // useEffect(() => {
-    //     if (filteredProducts.length > 0) {
-    //         const indexOfLastProduct = currentPage * productsPerPage;
-    //         const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    //         const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-
-    //         setProducts(currentProducts);
-
-    //         // Update totalPages based on the filtered products
-    //         const filteredTotalPages = Math.ceil(filteredProducts.length / productsPerPage);
-    //         setTotalPages(filteredTotalPages); // Store the total pages based on filtered products
-    //     }
-    // }, [currentPage, filteredProducts]);
-
-
     const handleSearch = () => {
         setLoading(true);
         setCurrentPage(1); // Set halaman ke 1 ketika pencarian dilakukan
@@ -169,10 +119,7 @@ const MainHome = ({ userId, setUserId }) => {
 
     return (
         <div>
-            <Header userId={userId} setUserId={setUserId} />
-            <div>
-                <h1>{userId ? `Hello, User ${userId}` : "Welcome to the Home Page"}</h1>
-                {userData && (
+                 {/* {userData && (
                     <div>
                         <h3>User Details</h3>
                         <p>Username: {userData.username}</p>
@@ -180,9 +127,15 @@ const MainHome = ({ userId, setUserId }) => {
                         <p>Skintype: {userData.skintype}</p>
                         <p>Undertone: {userData.undertone}</p>
                     </div>
-                )}
-                <h2>Products</h2>
-                <div>
+                )} */}
+               
+            <Header userId={userId} setUserId={setUserId} />
+        <div className="main-page">
+            <div className="container-2">
+                {/* <h1>{userId ? `Hello, User ${userId}` : "Welcome to the Home Page"}</h1>
+             */}
+                <h2>Popular Products</h2>
+                <div className="search-bar">
                     <input
                         type="text"
                         placeholder="Search by Product or Brand"
@@ -194,6 +147,7 @@ const MainHome = ({ userId, setUserId }) => {
                     </button>
                 </div>
             </div>
+
             <div className="product-grid">
                 {products.map((product) => (
                     <ProductCard
@@ -222,6 +176,7 @@ const MainHome = ({ userId, setUserId }) => {
                     Next
                 </button>
             </div>
+        </div>
         </div>
     );
 };
