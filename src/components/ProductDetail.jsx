@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
-
+import Header from './Header'; 
 const ProductDetail = () => {
     const { product_id } = useParams();
     const navigate = useNavigate(); // Initialize the navigate function
@@ -87,7 +87,7 @@ const ProductDetail = () => {
 
             if (!response.ok) throw new Error('Failed to submit rating');
             const result = await response.json();
-            setMessage(result.message || 'Rating submitted successfully');
+            setMessage(result.message || 'Give Rating Success');
             // setRating(3); // Reset rating
             
             // Simpan product_id di local storage
@@ -106,32 +106,78 @@ const ProductDetail = () => {
 
     return (
         <div>
-            <button onClick={() => navigate(-1)}>Back</button> {/* Back button */}
-            <h2>{product.product_name}</h2>
+            <Header userId={userId} setUserId={setUserId}/> {/* Pass userId and setUserId */}
+            {/* <button onClick={() => navigate(-1)}>Back</button> Back button */}
+            <div className="main-page-detail">
+                <button onClick={() => navigate(-1)}>Back</button>
+            
+           
+            <div className="kiri_umum">
+            <div className="kiri">
             <img src={product.image_url} alt={product.product_name} />
-            <p>{product.product_description}</p>
-            <p>Price: {product.price !== undefined ? `Rp ${product.price}` : 'N/A'}</p>
+            </div>
 
+            <div className="rate-section">
             {hasRated ? (
                 <p>Your Rating: {userRating || rating}</p>
             ) : (
-                <form onSubmit={handleSubmitRating}>
-                    <label htmlFor="rating">Rate this product:</label>
-                    <input
-                        type="number"
-                        id="rating"
-                        name="rating"
-                        value={rating}
-                        min="1"
-                        max="5"
-                        onChange={handleRatingChange}
-                    />
-                    <button type="submit">Submit Rating</button>
-                </form>
+        //        <form onSubmit={handleSubmitRating} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        //  {/* <label htmlFor="rating">Rate this product:</label> */}
+        //             <input
+        //                 type="number"
+        //                 id="rating"
+        //                 name="rating"
+        //                 value={rating}
+        //                 min="1"
+        //                 max="5"
+        //                 onChange={handleRatingChange}
+        //             />
+        //             <button type="submit">Give Rating</button>
+        //         </form>
+
+        <form
+  onSubmit={handleSubmitRating}
+  style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+>
+  <select
+    id="rating"
+    name="rating"
+    value={rating}
+    onChange={handleRatingChange}
+    style={{
+      padding: '5px',
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+      width: '50px', // Lebar kotak kecil
+      backgroundColor: '#ffffff',
+    }}
+  >
+    <option value="0" disabled>
+    </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button type="submit">Give Rating</button>
+</form>
+
             )}
 
-            {message && <p>{message}</p>}
-        </div>
+            {/* {message && <p>{message}</p>} */}
+            {/* {message} */}
+            </div>   </div>
+
+              <div className="kanan">
+               <h2>{product.product_name}</h2>
+            <p>{product.product_description}</p>
+            <p>Price: {product.price !== undefined ? `Rp ${product.price}` : 'N/A'}</p>
+            </div>
+            </div>
+        
+        </div> 
+        
     );
 };
 

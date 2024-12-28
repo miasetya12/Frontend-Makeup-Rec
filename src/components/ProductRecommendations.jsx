@@ -146,7 +146,8 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     return (
         <div>
             <Header userId={userId} setUserId={setUserId} />
-            <h1>Product Recommendations</h1>
+            <div className="main-page">
+            <h2>Product Recommendations</h2>
 
             {userData ? (
                 <>
@@ -170,7 +171,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
             ) : (
                 <p>Loading user data...</p>
             )}
-        </div>
+        </div></div>
     );
 };
 

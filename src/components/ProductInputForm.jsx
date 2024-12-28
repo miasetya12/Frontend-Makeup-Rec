@@ -102,6 +102,7 @@ const handleSubmit = () => {
                     onChange={(selectedOption) => setMakeupPartInput(selectedOption ? selectedOption.value : '')}
                     placeholder="Select Product Category"
                     isSearchable={true}
+                    classNamePrefix="custom-select"
                 />
             </label>
 
@@ -120,6 +121,16 @@ const handleSubmit = () => {
                     isDisabled={!makeupPartInput}
                     placeholder="Select Product Sub Category"
                     isSearchable={true}
+                    styles={{
+        control: (base) => ({
+            ...base,
+            fontWeight: 'normal', // Untuk gaya teks pada input
+        }),
+        option: (base) => ({
+            ...base,
+            fontWeight: 'normal', // Untuk gaya teks pada opsi
+        }),
+    }}
                 />
             </label>
       
@@ -142,6 +153,7 @@ const handleSubmit = () => {
                     getOptionValue={(e) => e.value}
                     placeholder="Search Reference Product That You Like"
                     isSearchable={true}
+                    classNamePrefix="custom-select"
                 />
             </label>
 
@@ -160,6 +172,7 @@ const handleSubmit = () => {
                     value={userDescription}
                     placeholder="Ex: Matte Long Lasting Red Color"
                     onChange={(e) => setUserDescription(e.target.value)}
+                    classNamePrefix="custom-select"
                 />
             </label>
 
@@ -169,6 +182,7 @@ const handleSubmit = () => {
                     type="number"
                     value={topN}
                     onChange={(e) => setTopN(parseInt(e.target.value, 10))}
+                    classNamePrefix="custom-select"
                 />
             </label>
 

@@ -93,7 +93,7 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, a
                     className="order-dropdown"
                     value={order}
                     onChange={handleOrderChange}
-                    style={{ marginTop: '10px', padding: '5px', borderRadius: '5px' }}
+                    style={{ marginTop: '10px', padding: '5px', borderRadius: '5px', width:'75px' }}
                 >
                     <option value={0} disabled>Order</option>
                     {[1, 2, 3, 4, 5].map((num) => (

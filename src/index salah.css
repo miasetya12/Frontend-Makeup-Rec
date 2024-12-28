@@ -473,4 +473,41 @@ nav {
     .navbar .navbar-nav .nav-item:last-child {
         margin-bottom: 0;
     }
+            .main-page-detail {
+              flex-direction: column;
+              /* Ubah menjadi kolom */
+              align-items: center;
+              /* Tengah sejajarkan elemen */
+              gap: 20px;
+              /* Jarak antar elemen */
+              padding: 20px;
+              /* Kurangi padding untuk tampilan kecil */
+            }
+      
+            .kanan {
+              order: 2;
+              /* Posisikan pertama */
+              width: 100%;
+              /* Lebar penuh */
+              height: auto;
+              /* Biarkan tinggi menyesuaikan */
+            }
+      
+            .kiri_umum {
+              order: 3;
+              /* Posisikan kedua */
+              width: 100%;
+              /* Lebar penuh */
+              align-items: center;
+              /* Tengah sejajarkan */
+            }
+      
+            .rate-section {
+              order: 3;
+              /* Posisikan ketiga */
+              width: 100%;
+              /* Lebar penuh */
+              justify-content: center;
+              /* Tengah sejajarkan */
+            }
 }

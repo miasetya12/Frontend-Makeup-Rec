@@ -224,9 +224,9 @@ return (
 //     <button onClick={handleReset}>Reset Recommendations</button>
 // </div>
 
-
+<div className="recommendation-sec">
 <div>
-    <h2>Recommendations</h2>
+    <h2>Here The Recommendations</h2>
     {/* Loop untuk menampilkan rekomendasi */}
     {storedRecommendations.length > 0 ? (
         // Loop melalui produk dan tampilkan per 5 produk
@@ -240,6 +240,7 @@ return (
                     {/* Tampilkan judul skenario di atas setiap 5 produk */}
                     <div className="scenario-title">
                         <h3>Recommendation Scenario {index + 1}</h3>
+                        
                     </div>
 
                     {/* Grid untuk produk */}
@@ -260,9 +261,9 @@ return (
                                         onThumbsChange={handleThumbsChange}
                                         scenarioNumber={index + 1}
                                     />
-                                    <p>
+                                    {/* <p>
                                         Recommended by: {product.api} (cbfWeight: {product.cbfWeight}, cfWeight: {product.cfWeight})
-                                    </p>
+                                    </p> */}
                                 </div>
                             </div>
                         ))}
@@ -281,12 +282,15 @@ return (
         <>
         {/* Show order data (ScenarioOrder) only after recommendations are available */}
              <ScenarioOrder onOrderChange={handleOrderChange} />
-            <button onClick={handleSaveAll}>Save All Recommendations</button>
-            <button onClick={handleReset}>Reset Recommendations</button>
+          <div className="recommendation-sec-button">
+  <button onClick={handleSaveAll}>Save All Evaluation</button>
+  <button onClick={handleReset}>Reset Recommendations</button>
+</div>
+
         </>
     )}
 </div>
-
+</div>
 
 );
 
