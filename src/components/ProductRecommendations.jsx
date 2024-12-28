@@ -18,7 +18,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
         const fetchUserData = async () => {
             if (userId) {
                 try {
-                    const response = await fetch(`http://127.0.0.1:5000/user/${userId}`);
+                    const response = await fetch(`http://188.166.222.137:5000/user/${userId}`);
                     const data = await response.json();
                     setUserData(data);
                 } catch (error) {
@@ -32,7 +32,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/products');
+                const response = await fetch('http://188.166.222.137:5000/products');
                 const data = await response.json();
                 setProducts(data);
 
@@ -72,7 +72,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
      
             const recommendations = await Promise.all(
     weightConfigs.map(async (config) => {
-        const apiEndpoint = `http://127.0.0.1:5000/recommend/${apiName}`;
+        const apiEndpoint = `http://188.166.222.137:5000/recommend/${apiName}`;
         const response = await axios.get(apiEndpoint, {
             params: {
                 makeup_part_input: params.makeupPartInput,

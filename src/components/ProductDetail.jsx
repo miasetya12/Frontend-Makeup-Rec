@@ -15,7 +15,7 @@ const ProductDetail = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`http://127.0.0.1:5000/products/${product_id}`);
+                const response = await fetch(`http://188.166.222.137:5000/products/${product_id}`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setProduct(data);
@@ -32,7 +32,7 @@ const ProductDetail = () => {
 
             try {
                 console.log(`Fetching reviews for userId: ${userId}`);
-                const response = await axios.get(`http://127.0.0.1:5000/reviews/${userId}`);
+                const response = await axios.get(`http://188.166.222.137:5000/reviews/${userId}`);
                 
                 // Log the response to check the structure of the data
                 console.log('Response from /reviews/:userId:', response);
@@ -75,7 +75,7 @@ const ProductDetail = () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/submit_rating', {
+            const response = await fetch('http://188.166.222.137:5000/submit_rating', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

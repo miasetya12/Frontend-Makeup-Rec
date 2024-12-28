@@ -18,7 +18,8 @@ const MainHome = ({ userId, setUserId }) => {
         const fetchUserData = async () => {
             if (userId) {
                 try {
-                    const response = await fetch(`http://127.0.0.1:5000/user/${userId}`);
+                 
+                    const response = await fetch(`http://188.166.222.137:5000/user/${userId}`);
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -37,7 +38,7 @@ const MainHome = ({ userId, setUserId }) => {
         // Fetch all products initially
         const fetchAllProducts = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/products');
+                const response = await fetch('http://188.166.222.137:5000/products');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

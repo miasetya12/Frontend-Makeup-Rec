@@ -15,7 +15,7 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
         // Fetch product list from the API
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/products');
+                const response = await fetch('http://188.166.222.137:5000/products');
                 const data = await response.json();
                 setProductList(data);
             } catch (error) {

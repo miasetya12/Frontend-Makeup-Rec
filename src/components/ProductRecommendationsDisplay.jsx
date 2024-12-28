@@ -81,7 +81,7 @@ const handleSaveAll = () => {
     };
 
     // Save recommendations first
-    fetch('http://localhost:5000/save_recommendation', {
+    fetch('http://188.166.222.137:5000/save_recommendation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ const handleSaveAll = () => {
         };
 
         // Save the scenario order data
-        fetch('http://localhost:5000/save_order', {
+        fetch('http://188.166.222.137:5000/save_order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

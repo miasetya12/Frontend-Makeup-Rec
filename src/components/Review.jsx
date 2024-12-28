@@ -12,7 +12,7 @@ const Review = ({ userId, setUserId }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/products'); 
+                const response = await fetch('http://188.166.222.137:5000/products'); 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -27,7 +27,7 @@ const Review = ({ userId, setUserId }) => {
         const fetchReviews = async () => {
             if (userId) {
                 try {
-                    const response = await axios.get(`http://127.0.0.1:5000/reviews/${userId}`);
+                    const response = await axios.get(`http://188.166.222.137:5000/reviews/${userId}`);
                     console.log("Fetched Reviews:", response.data.reviews); // Log data review
                     setReviews(response.data.reviews);
                 } catch (error) {

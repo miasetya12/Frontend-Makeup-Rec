@@ -57,7 +57,7 @@ const UserReviews = ({ userId }) => {
             try {
                  
                 // const response = await axios.get(`http://localhost:5000/reviews/${userId}`);
-                const response = await axios.get(`http://127.0.0.1:5000/reviews/${userId}`);
+                const response = await axios.get(`http://188.166.222.137:5000/reviews/${userId}`);
                 setReviews(response.data.reviews);
             } catch (error) {
                 console.error(error);
