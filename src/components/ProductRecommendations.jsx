@@ -158,7 +158,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
                         onMakeupPartChange={handleMakeupPartChange}
                         onProductCategoryChange={() => {}}
                     />
-
+{/* 
                     {loading ? (
                         <p>Loading recommendations...</p>  // Display loading message
                     ) : (
@@ -166,7 +166,19 @@ const ProductRecommendations = ({ userId, setUserId }) => {
                             recommendedProducts={recommendedProducts}
                             onReset={handleReset}
                         />
+                    )} */}
+
+  {loading ? (
+                        <div className="overlay">
+                            <div className="spinner"></div>
+                        </div>
+                    ) : (
+                        <ProductRecommendationsDisplay
+                            recommendedProducts={recommendedProducts}
+                            onReset={handleReset}
+                        />
                     )}
+
                 </>
             ) : (
                 <p>Loading user data...</p>

@@ -59,7 +59,7 @@ nav {
 .search-bar button {
   padding: 8px 16px;
   border: none;
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -123,7 +123,7 @@ nav {
 }
 
 .pagination button {
-  background-color: #954caf;
+  background-color: #640d5f;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -292,7 +292,7 @@ nav {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   width: 100%;
   align-items: center;
@@ -392,14 +392,14 @@ nav {
 }
 
 .navbar {
-  background-color: #954caf;
+  background-color: #640d5f;
   padding: 10px 20px;
   height: 80px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .scenario-title {
-  background-color: #954caf;
+  background-color: #640d5f;
   margin-top: 20px;
   margin-bottom: 20px;
   min-height: 80px;
@@ -461,7 +461,7 @@ nav {
 }
 
 .navbar .navbar-nav .nav-item {
-  margin-right: 10px;
+  margin-right: 0;
 }
 
 .navbar .navbar-nav .nav-item:last-child {
@@ -475,7 +475,7 @@ nav {
   font-weight: bold;
 }
 .navbar .collapse {
-  background-color: #954caf;
+  background-color: #640d5f;
   /* margin-left: -100px;
   margin-right: -100px;
   padding-bottom: 10px; */
@@ -530,7 +530,7 @@ nav {
 }
 
 .login-input:focus {
-  border-color: #954caf;
+  border-color: #640d5f;
   /* Green border when focused */
 }
 
@@ -567,13 +567,13 @@ nav {
   /* Adds a gap between buttons */
 }
 .login-button {
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   font-weight: bold;
 }
 
 .login-button:hover {
-  background-color: #954caf;
+  background-color: #ffb200;
 }
 
 .back-button {
@@ -610,7 +610,7 @@ nav {
 .main-page-detail button {
   padding: 10px 15px;
   /* Padding untuk tombol */
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   border: none;
   border-radius: 4px;
@@ -699,7 +699,7 @@ nav {
 .rate-section button {
   padding: 10px 15px;
   /* Padding untuk tombol */
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   border: none;
   border-radius: 4px;
@@ -708,7 +708,7 @@ nav {
 .rate-section p {
   padding: 10px 15px;
   /* Padding untuk tombol */
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   border: none;
   border-radius: 4px;
@@ -716,7 +716,7 @@ nav {
 }
 
 .rate-section button:hover {
-  background-color: #954caf;
+  background-color: #640d5f;
 }
 .recommendation-sec{
   margin-top: 50px;
@@ -767,7 +767,7 @@ nav {
 
 .grid-item select:focus {
   outline: none;
-  border-color: #954caf;
+  border-color: #640d5f;
 }
 .result-container {
   margin-top: 20px;
@@ -798,7 +798,7 @@ nav {
   border-radius: 5px;
   /* Membuat sudut tombol melengkung */
   cursor: pointer;
-  background-color: #954caf;
+  background-color: #640d5f;
   /* Warna tombol */
   color: white;
   /* Warna teks */
@@ -807,7 +807,7 @@ nav {
 }
 
 .recommendation-sec-button button:hover {
-  background-color: #954caf;
+  background-color: #ffb200;
   /* Warna saat tombol dihover */
 }
 .login-regis {
@@ -820,11 +820,45 @@ nav {
 }
 
 .login-button {
-  background-color: #954caf;
+  background-color: #640d5f;
   color: white;
   font-weight: bold;
 }
+/* Overlay CSS */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Ensure the overlay appears on top */
+}
 
+/* Spinner CSS */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 
 /* Responsively adjust text and layout for smaller screens */
@@ -874,15 +908,10 @@ nav {
       .navbar .navbar-nav {
         text-align: center;
     }
-
-    .navbar .navbar-nav .nav-item {
-        margin-right: 0;
-        /* margin-bottom: 5px; */
-    }
-    
+/*  */
 
         .navbar .collapse {
-          background-color: #954caf;
+          background-color: #640d5f;
           margin-left: -100px;
           margin-right: -100px;
           padding-bottom: 10px;
@@ -919,7 +948,7 @@ nav {
         .main-page-detail button {
           padding: 10px 15px;
           /* Padding untuk tombol */
-          background-color: #954caf;
+          background-color: #640d5f;
           color: white;
           align-items: left;
           border: none;
@@ -988,4 +1017,5 @@ nav {
                   grid-template-columns: repeat(2, 1fr);
                   /* Ubah jadi 2 kolom */
                 }
+                               
 }
