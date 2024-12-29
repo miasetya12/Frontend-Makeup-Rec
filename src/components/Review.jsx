@@ -4,15 +4,18 @@ import axios from 'axios';
 import Header from './Header'; 
 import ProductCard from './ProductCard';
 
+
 const Review = ({ userId, setUserId }) => {
     const [reviews, setReviews] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    // `${serverIP}/products`
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://188.166.222.137:5000/products'); 
+                const response = await fetch(`${serverIP}/products`); 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -27,7 +30,7 @@ const Review = ({ userId, setUserId }) => {
         const fetchReviews = async () => {
             if (userId) {
                 try {
-                    const response = await axios.get(`http://188.166.222.137:5000/reviews/${userId}`);
+                    const response = await axios.get(`${serverIP}/reviews/${userId}`);
                     console.log("Fetched Reviews:", response.data.reviews); // Log data review
                     setReviews(response.data.reviews);
                 } catch (error) {

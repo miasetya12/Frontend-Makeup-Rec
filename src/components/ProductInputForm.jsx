@@ -11,11 +11,13 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
     const [productList, setProductList] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    // `${serverIP}/products`
     useEffect(() => {
         // Fetch product list from the API
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://188.166.222.137:5000/products');
+                const response = await fetch(`${serverIP}/products`);
                 const data = await response.json();
                 setProductList(data);
             } catch (error) {

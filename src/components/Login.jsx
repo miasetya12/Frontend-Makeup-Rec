@@ -7,11 +7,13 @@ import '../css/Login.css';
 const Login = ({ setUserId }) => {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:5000/login', { username });
+            
+            const response = await axios.post(`${serverIP}/login`, { username });
             // const response = await axios.post('http://localhost:5000/login', { username });
             setUserId(response.data.user_id); // Set userId in state
             localStorage.setItem('userId', response.data.user_id); // Save userId to localStorage

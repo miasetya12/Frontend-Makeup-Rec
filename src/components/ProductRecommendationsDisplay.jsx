@@ -19,6 +19,8 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
     console.log("Stored recommendations from localStorage:", storedRecommendations);
     setStoredRecommendations(storedRecommendations);
 }, []);
+   const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    // `${serverIP}/products`
 
 useEffect(() => {
     if (recommendedProducts.length > 0) {
@@ -81,7 +83,7 @@ const handleSaveAll = () => {
     };
 
     // Save recommendations first
-    fetch('http://188.166.222.137:5000/save_recommendation', {
+    fetch(`${serverIP}/save_recommendation`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -100,7 +102,7 @@ const handleSaveAll = () => {
         };
 
         // Save the scenario order data
-        fetch('http://188.166.222.137:5000/save_order', {
+        fetch(`${serverIP}/save_order`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

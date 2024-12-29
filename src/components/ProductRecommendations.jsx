@@ -5,6 +5,7 @@ import ProductRecommendationsDisplay from './ProductRecommendationsDisplay';
 import RecommendationSource from './RecommendationSource';
 import Header from './Header';
 
+
 const ProductRecommendations = ({ userId, setUserId }) => {
     const [products, setProducts] = useState([]);
     const [makeupParts, setMakeupParts] = useState([]);
@@ -14,11 +15,13 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     const [selectedApi, setSelectedApi] = useState({ api: '', weightConfig: null });
     const [loading, setLoading] = useState(false);  // Added loading state
 
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    // `${serverIP}/products`
     useEffect(() => {
         const fetchUserData = async () => {
             if (userId) {
                 try {
-                    const response = await fetch(`http://188.166.222.137:5000/user/${userId}`);
+                    const response = await fetch(`${serverIP}/user/${userId}`);
                     const data = await response.json();
                     setUserData(data);
                 } catch (error) {
@@ -32,7 +35,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://188.166.222.137:5000/products');
+                const response = await fetch(`${serverIP}/products`);
                 const data = await response.json();
                 setProducts(data);
 
@@ -72,7 +75,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
      
             const recommendations = await Promise.all(
     weightConfigs.map(async (config) => {
-        const apiEndpoint = `http://188.166.222.137:5000/recommend/${apiName}`;
+        const apiEndpoint = `${serverIP}/recommend/${apiName}`;
         const response = await axios.get(apiEndpoint, {
             params: {
                 makeup_part_input: params.makeupPartInput,

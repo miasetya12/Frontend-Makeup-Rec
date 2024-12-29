@@ -12,14 +12,15 @@ const MainHome = ({ userId, setUserId }) => {
     const [productsPerPage] = useState(30); // Number of products per page
     const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
     const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
-
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
     useEffect(() => {
         // Fetch the user data based on the userId
+        
         const fetchUserData = async () => {
             if (userId) {
                 try {
-                 
-                    const response = await fetch(`http://188.166.222.137:5000/user/${userId}`);
+                  
+                    const response = await fetch(`${serverIP}/user/${userId}`);
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -33,12 +34,14 @@ const MainHome = ({ userId, setUserId }) => {
 
         fetchUserData();
     }, [userId]);
-
+    
+   
+    // `${serverIP}/products`
     useEffect(() => {
         // Fetch all products initially
         const fetchAllProducts = async () => {
             try {
-                const response = await fetch('http://188.166.222.137:5000/products');
+                const response = await fetch(`${serverIP}/products`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

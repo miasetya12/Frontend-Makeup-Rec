@@ -12,10 +12,12 @@ const ProductDetail = () => {
     const [hasRated, setHasRated] = useState(false);
     const [userRating, setUserRating] = useState(null); // Untuk menyimpan rating yang sudah diberikan pengguna
 
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    // `${serverIP}/products`
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`http://188.166.222.137:5000/products/${product_id}`);
+                const response = await fetch(`${serverIP}/products/${product_id}`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setProduct(data);
@@ -32,7 +34,7 @@ const ProductDetail = () => {
 
             try {
                 console.log(`Fetching reviews for userId: ${userId}`);
-                const response = await axios.get(`http://188.166.222.137:5000/reviews/${userId}`);
+                const response = await axios.get(`${serverIP}/reviews/${userId}`);
                 
                 // Log the response to check the structure of the data
                 console.log('Response from /reviews/:userId:', response);
@@ -75,7 +77,7 @@ const ProductDetail = () => {
         }
 
         try {
-            const response = await fetch('http://188.166.222.137:5000/submit_rating', {
+            const response = await fetch(`${serverIP}/submit_rating` , {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

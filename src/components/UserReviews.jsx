@@ -52,12 +52,14 @@ const UserReviews = ({ userId }) => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    // `${serverIP}/products`
     useEffect(() => {
         const fetchReviews = async () => {
             try {
                  
                 // const response = await axios.get(`http://localhost:5000/reviews/${userId}`);
-                const response = await axios.get(`http://188.166.222.137:5000/reviews/${userId}`);
+                const response = await axios.get(`${serverIP}//reviews/${userId}`);
                 setReviews(response.data.reviews);
             } catch (error) {
                 console.error(error);
