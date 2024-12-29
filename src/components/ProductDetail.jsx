@@ -12,7 +12,7 @@ const ProductDetail = () => {
     const [hasRated, setHasRated] = useState(false);
     const [userRating, setUserRating] = useState(null); // Untuk menyimpan rating yang sudah diberikan pengguna
 
-    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
     // `${serverIP}/products`
     useEffect(() => {
         const fetchProduct = async () => {

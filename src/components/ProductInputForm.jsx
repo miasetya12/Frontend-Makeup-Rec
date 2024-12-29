@@ -11,7 +11,7 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
     const [productList, setProductList] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
     // `${serverIP}/products`
     useEffect(() => {
         // Fetch product list from the API

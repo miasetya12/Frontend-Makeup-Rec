@@ -52,7 +52,7 @@ const UserReviews = ({ userId }) => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
     // `${serverIP}/products`
     useEffect(() => {
         const fetchReviews = async () => {

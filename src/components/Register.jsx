@@ -111,7 +111,7 @@ const Register = ({ onRegister }) => {
     const [undertone, setUndertone] = useState('');
     const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
 
-    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
     // `${serverIP}/products`
     const handleSubmit = async (e) => {
         e.preventDefault();

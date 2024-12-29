@@ -15,7 +15,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     const [selectedApi, setSelectedApi] = useState({ api: '', weightConfig: null });
     const [loading, setLoading] = useState(false);  // Added loading state
 
-    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
     // `${serverIP}/products`
     useEffect(() => {
         const fetchUserData = async () => {

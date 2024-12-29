@@ -10,7 +10,7 @@ const Review = ({ userId, setUserId }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const serverIP = 'https://test-mia-74b518a4afb7.herokuapp.com/'
+    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
     // `${serverIP}/products`
     useEffect(() => {
         const fetchProducts = async () => {
