@@ -7,7 +7,7 @@ import '../css/Login.css';
 const Login = ({ setUserId }) => {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
-    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
+    const serverIP = 'http://127.0.0.1:5000/'
 
     const handleLogin = async (e) => {
         e.preventDefault();

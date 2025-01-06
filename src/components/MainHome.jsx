@@ -12,7 +12,7 @@ const MainHome = ({ userId, setUserId }) => {
     const [productsPerPage] = useState(30); // Number of products per page
     const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
     const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
-    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
+    const serverIP = 'http://127.0.0.1:5000/'
     useEffect(() => {
         // Fetch the user data based on the userId
         

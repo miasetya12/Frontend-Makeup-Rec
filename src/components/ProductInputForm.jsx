@@ -11,7 +11,7 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
     const [productList, setProductList] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
+    const serverIP = 'http://127.0.0.1:5000/'
     // `${serverIP}/products`
     useEffect(() => {
         // Fetch product list from the API

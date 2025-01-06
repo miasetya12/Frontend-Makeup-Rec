@@ -19,7 +19,7 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
     console.log("Stored recommendations from localStorage:", storedRecommendations);
     setStoredRecommendations(storedRecommendations);
 }, []);
-   const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
+   const serverIP = 'http://127.0.0.1:5000/'
     // `${serverIP}/products`
 
 useEffect(() => {

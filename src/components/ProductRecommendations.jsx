@@ -15,7 +15,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     const [selectedApi, setSelectedApi] = useState({ api: '', weightConfig: null });
     const [loading, setLoading] = useState(false);  // Added loading state
 
-    const serverIP = 'https://plankton-app-huogv.ondigitalocean.app/'
+    const serverIP = 'http://127.0.0.1:5000/'
     // `${serverIP}/products`
     useEffect(() => {
         const fetchUserData = async () => {
@@ -62,13 +62,13 @@ const ProductRecommendations = ({ userId, setUserId }) => {
 
         try {
             const weightConfigs = [
-                { cbfWeight: 0, cfWeight: 1 },
-                { cbfWeight: 0.2, cfWeight: 0.8 },
-                { cbfWeight: 0.33, cfWeight: 0.66 },
-                { cbfWeight: 0.5, cfWeight: 0.5 },
-                { cbfWeight: 0.66, cfWeight: 0.33 },
-                { cbfWeight: 0.8, cfWeight: 0.2},
                 { cbfWeight: 1, cfWeight: 0 },
+                { cbfWeight: 0.8, cfWeight: 0.2},
+                { cbfWeight: 0.66, cfWeight: 0.33 },
+                { cbfWeight: 0.5, cfWeight: 0.5 },
+                { cbfWeight: 0.33, cfWeight: 0.66 },
+                { cbfWeight: 0.2, cfWeight: 0.8 },
+                { cbfWeight: 0, cfWeight: 1 }               
             ];
 
     const apiName = 'hybrid_tfidf'; // Nama API yang sedang digunakan
