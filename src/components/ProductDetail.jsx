@@ -14,7 +14,9 @@ const ProductDetail = () => {
     const [hasRated, setHasRated] = useState(false);
     const [userRating, setUserRating] = useState(null); // Untuk menyimpan rating yang sudah diberikan pengguna
 
-    const serverIP = 'http://127.0.0.1:5000/'
+    // const serverIP = 'http://127.0.0.1:5000/'
+    const serverIP = 'https://goldfish-app-qex69.ondigitalocean.app/';
+
     // `${serverIP}/products`
     useEffect(() => {
         const fetchProduct = async () => {

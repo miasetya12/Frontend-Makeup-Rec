@@ -15,7 +15,9 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     const [selectedApi, setSelectedApi] = useState({ api: '', weightConfig: null });
     const [loading, setLoading] = useState(false);  // Added loading state
 
-    const serverIP = 'http://127.0.0.1:5000/'
+    // const serverIP = 'http://127.0.0.1:5000/'
+     const serverIP = 'https://goldfish-app-qex69.ondigitalocean.app/';
+
     // `${serverIP}/products`
     useEffect(() => {
         const fetchUserData = async () => {
