@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, api, onThumbsChange, scenarioNumber }) => {
+const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, info, api, onThumbsChange, scenarioNumber }) => {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
     const [order, setOrder] = useState(0); // State untuk nilai dropdown
-
+    // const [showInfo, setShowInfo] = useState(false);
+    const [hovered, setHovered] = useState(false);
     const handleThumbsUpClick = () => {
         if (thumbsUpClicked) {
             setThumbsUpClicked(false);
@@ -42,7 +43,14 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, a
     };
 
     return (
-        <div className="product-card-container">
+        <div className="product-card-container"
+        // onMouseEnter={() => setShowInfo(true)} 
+        // onMouseLeave={() => setShowInfo(false)} 
+        onMouseEnter={() => setHovered(true)} // Set hover state to true
+            onMouseLeave={() => setHovered(false)} // Reset hover state to false
+            style={{ position: 'relative' }} 
+        >
+           
             <Link to={`/product/${product_id}`} className="product-link">
                 <div className="image-container">
                     <img src={image} alt={name} />
@@ -52,7 +60,8 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, a
                 <p className="product-brand">{brand}</p>
 
                 {shade !== 0 && <p className="product-shade">{shade}</p>}
-                <p className="product-price">Rp {price}</p>
+                <p className="product-price">{price}</p>
+                {/* <p className="product-info">Rp {info}</p> */}
 
                 {stars !== undefined && (
                     <div className="stars">
@@ -61,6 +70,13 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, a
                 )}
             </Link>
 
+            {/* {showInfo && (
+                            <div className="product-info">
+                                <p>{info}</p>
+                            </div>
+                        )} */}
+        
+        
             <div className="thumbs-container">
                 {/* Thumbs Up Button */}
                 <button

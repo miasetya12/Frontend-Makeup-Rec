@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
 import Header from './Header'; 
+import RecBottom from './RecBottom';
+
 const ProductDetail = () => {
     const { product_id } = useParams();
     const navigate = useNavigate(); // Initialize the navigate function
@@ -62,6 +64,7 @@ const ProductDetail = () => {
             }
         };
 
+
         fetchProduct();
         fetchUserRating();
     }, [product_id, userId]);
@@ -106,6 +109,42 @@ const ProductDetail = () => {
 
     if (!product) return <div>Loading...</div>;
 
+
+//    useEffect(() => {
+//         const fetchUserData = async () => {
+//             if (userId) {
+//                 try {
+//                     const response = await fetch(`${serverIP}/user/${userId}`);
+//                     const data = await response.json();
+//                     setUserData(data);
+//                 } catch (error) {
+//                     console.error('Error fetching user data:', error);
+//                 }
+//             }
+//         };
+//         fetchUserData();
+//     }, [userId]);
+
+//     useEffect(() => {
+//         const fetchProducts = async () => {
+//             try {
+//                 const response = await fetch(`${serverIP}/products`);
+//                 const data = await response.json();
+//                 setProducts(data);
+
+//                 const makeupPartsSet = new Set(data.map((product) => product.makeup_part));
+//                 setMakeupParts([...makeupPartsSet]);
+//             } catch (error) {
+//                 console.error('Error fetching products:', error);
+//             }
+//         };
+//         fetchProducts();
+
+        
+//     }, []);
+
+    
+
     return (
         <div>
             <Header userId={userId} setUserId={setUserId}/> {/* Pass userId and setUserId */}
@@ -115,69 +154,62 @@ const ProductDetail = () => {
             
            
             <div className="kiri_umum">
-            <div className="kiri">
-            <img src={product.image_url} alt={product.product_name} />
-            </div>
+                <div className="kiri">
+                <img src={product.image_url} alt={product.product_name} />
+                </div>
 
             <div className="rate-section">
             {hasRated ? (
                 <p>Your Rating: {userRating || rating}</p>
             ) : (
-        //        <form onSubmit={handleSubmitRating} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        //  {/* <label htmlFor="rating">Rate this product:</label> */}
-        //             <input
-        //                 type="number"
-        //                 id="rating"
-        //                 name="rating"
-        //                 value={rating}
-        //                 min="1"
-        //                 max="5"
-        //                 onChange={handleRatingChange}
-        //             />
-        //             <button type="submit">Give Rating</button>
-        //         </form>
-
         <form
-  onSubmit={handleSubmitRating}
-  style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
->
-  <select
-    id="rating"
-    name="rating"
-    value={rating}
-    onChange={handleRatingChange}
-    style={{
-      padding: '5px',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      width: '50px', // Lebar kotak kecil
-      backgroundColor: '#ffffff',
-    }}
-  >
-    <option value="0" disabled>
-    </option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <button type="submit">Give Rating</button>
-</form>
+                onSubmit={handleSubmitRating}
+                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+                >
+                <select
+                    id="rating"
+                    name="rating"
+                    value={rating}
+                    onChange={handleRatingChange}
+                    style={{
+                        padding: '5px',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        width: '50px', // Lebar kotak kecil
+                        backgroundColor: '#ffffff',
+                    }}
+                >
+                    <option value="0" disabled>
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit">Give Rating</button>
+                </form>
 
             )}
 
-            {/* {message && <p>{message}</p>} */}
-            {/* {message} */}
-            </div>   </div>
+            </div>  
+            </div>
 
               <div className="kanan">
                <h2>{product.product_name}</h2>
+             <p><b>{product.shade_name}</b></p>
             <p>{product.product_description}</p>
-            <p>Price: {product.price !== undefined ? `Rp ${product.price}` : 'N/A'}</p>
+            <p>Price: {product.price !== undefined ? `${product.price}` : 'N/A'}</p>
             </div>
+            
             </div>
-        
+
+    <div className="bawah">
+        <RecBottom product_id={product_id} userId={userId} />
+    </div>
+
+        <div >
+        </div>
         </div> 
         
     );

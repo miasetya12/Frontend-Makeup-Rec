@@ -23,7 +23,7 @@ const ProductCard = ({ product_id, image, name, brand, shade, price, stars }) =>
                 {/* Conditionally render shade if it's not 0 */}
                 {shade !== 0 && <p className="product-shade">{shade}</p>}
 
-                <p className="product-price">Rp {price}</p>
+                <p className="product-price">{price}</p>
 
                 {/* Display stars and rating */}
                 {stars !== undefined && (

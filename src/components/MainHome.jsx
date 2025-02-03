@@ -6,13 +6,14 @@ const MainHome = ({ userId, setUserId }) => {
     const [products, setProducts] = useState([]); // State to store products on the current page
     const [allProducts, setAllProducts] = useState([]); // State to store all products
     const [searchQuery, setSearchQuery] = useState(""); // State for search query
-    const [userData, setUserData] = useState(null); // State for user data
+    // State for user data
     const [loading, setLoading] = useState(false); // State for loading indicator
     const [currentPage, setCurrentPage] = useState(1); // State for current page
     const [productsPerPage] = useState(30); // Number of products per page
     const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
     const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
     const serverIP = 'http://127.0.0.1:5000/'
+    const [userData, setUserData] = useState(null);
     useEffect(() => {
         // Fetch the user data based on the userId
         

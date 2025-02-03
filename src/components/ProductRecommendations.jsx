@@ -62,25 +62,25 @@ const ProductRecommendations = ({ userId, setUserId }) => {
 
         try {
             const weightConfigs = [
+                { cbfWeight: 4, cfWeight: 1},
+                { cbfWeight: 2, cfWeight: 1 },
+                { cbfWeight: 1, cfWeight: 1 },
+                { cbfWeight: 1, cfWeight: 2 },
+                { cbfWeight: 1, cfWeight: 4},
                 { cbfWeight: 1, cfWeight: 0 },
-                { cbfWeight: 0.8, cfWeight: 0.2},
-                { cbfWeight: 0.66, cfWeight: 0.33 },
-                { cbfWeight: 0.5, cfWeight: 0.5 },
-                { cbfWeight: 0.33, cfWeight: 0.66 },
-                { cbfWeight: 0.2, cfWeight: 0.8 },
                 { cbfWeight: 0, cfWeight: 1 }               
             ];
 
     const apiName = 'hybrid_tfidf'; // Nama API yang sedang digunakan
      
-            const recommendations = await Promise.all(
+    const recommendations = await Promise.all(
     weightConfigs.map(async (config) => {
         const apiEndpoint = `${serverIP}/recommend/${apiName}`;
         const response = await axios.get(apiEndpoint, {
             params: {
                 makeup_part_input: params.makeupPartInput,
                 product_category: params.productCategory,
-                target_product_id: 10,
+                target_product_id: params.selectedProduct,
                 user_id: userId,
                 skin_type: userData?.skintype,
                 skin_tone: userData?.skintone,

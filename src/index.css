@@ -185,6 +185,28 @@ nav {
   margin-bottom: 10px;
 }
 
+.product-description {
+  position: absolute;
+  top: 100%;
+  /* Position below the container */
+  left: 0;
+  width: 100%;
+  /* Match container width */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  /* Ensure it's above other elements */
+  display: none;
+  /* Initially hidden */
+}
+
+.product-card-container:hover .product-description {
+  display: block;
+  /* Show description when hovering */
+}
+
 .product-card img {
   position: absolute;
   top: 50%;
@@ -460,7 +482,7 @@ nav {
   background-color: white;
 }
 
-.navbar .navbar-nav .nav-item {
+.navbar .navbar-nav .nav-item{
   margin-right: 0;
 }
 
@@ -605,6 +627,16 @@ nav {
   padding-right: 50px;
   padding-left: 50px;
   /* Jarak antar div */
+}
+.bawah {
+  margin-top: 30px;
+  padding-right: 50px;
+  padding-left: 140px;
+  /* Jarak antar div */
+}
+
+.rekomendasiBawah h2{
+  padding-bottom: 20px;
 }
 
 .main-page-detail button {
@@ -905,10 +937,11 @@ nav {
     font-size: 14px;
     margin-bottom: 6px;
   }
-      .navbar .navbar-nav {
+      .navbar .navbar-nav{
         text-align: center;
     }
 /*  */
+ 
 
         .navbar .collapse {
           background-color: #640d5f;
@@ -916,7 +949,7 @@ nav {
           margin-right: -100px;
           padding-bottom: 10px;
         }
-    .navbar .navbar-nav .nav-item:last-child {
+    .navbar .navbar-nav .nav-item:last-child .nav-link{
         margin-bottom: 0;
     }
          .login-container {

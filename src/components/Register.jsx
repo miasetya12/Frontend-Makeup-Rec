@@ -1,3 +1,103 @@
+// // import React, { useState } from 'react';
+// // import axios from 'axios';
+// // import { toast } from 'react-toastify';
+// // import { useNavigate } from 'react-router-dom';
+
+// // const Register = ({ onRegister }) => {
+// //     const [name, setName] = useState('');
+// //     const [username, setUsername] = useState('');
+// //     const [skintone, setSkintone] = useState('');
+// //     const [skintype, setSkintype] = useState('');
+// //     const [undertone, setUndertone] = useState('');
+// //     const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
+
+// //     const handleSubmit = async (e) => {
+// //         e.preventDefault();
+// //         try {
+// //             const response = await axios.post('http://127.0.0.1:5000/register', { 
+// //                 name, 
+// //                 username, 
+// //                 skintone, 
+// //                 skintype, 
+// //                 undertone 
+// //             });
+// //             onRegister(response.data.user_id); // Mengupdate user_id setelah registrasi sukses
+            
+// //             // Menyesuaikan pesan sukses
+// //             toast.success(`Pendaftaran berhasil! Selamat datang, ${name}!`);
+// //             navigate('/login'); // Kembali ke halaman login setelah berhasil registrasi
+// //         } catch (error) {
+// //             if (error.response) {
+// //                 toast.error(error.response.data.error);
+// //             } else {
+// //                 toast.error('Pendaftaran gagal. Silakan coba lagi.');
+// //             }
+// //         }
+// //     };
+// //       const handleBack = () => {
+// //         navigate('/'); // Navigate back to home
+// //     };
+
+
+// //     return (
+// //         <div className="modal-background">
+// //              <div className="login-container">
+// //         <form onSubmit={handleSubmit} className="login-form">
+// //             <h2>Register</h2>
+// //             <input
+
+// //                 type="text"
+// //                 placeholder="Name"
+// //                 value={name}
+// //                 onChange={(e) => setName(e.target.value)}
+// //                 required
+// //                 className="login-input"
+// //             />
+// //             <input
+// //                 type="text"
+// //                 placeholder="Username"
+// //                 value={username}
+// //                 onChange={(e) => setUsername(e.target.value)}
+// //                 required
+// //                 className="login-input"
+// //             />
+// //             <input
+// //                 type="text"
+// //                 placeholder="Skintone"
+// //                 value={skintone}
+// //                 onChange={(e) => setSkintone(e.target.value)}
+// //                 required
+// //                 className="login-input"
+// //             />
+// //             <input
+// //                 type="text"
+// //                 placeholder="Skintype"
+// //                 value={skintype}
+// //                 onChange={(e) => setSkintype(e.target.value)}
+// //                 required
+// //                 className="login-input"
+// //             />
+// //             <input
+// //                 type="text"
+// //                 placeholder="Undertone"
+// //                 value={undertone}
+// //                 onChange={(e) => setUndertone(e.target.value)}
+// //                 required
+// //                 className="login-input"
+// //             />
+// //              <div className="login-regis">
+// //                     <button type="submit" className="login-button">Register</button>
+// //                     <button type='button' onClick={handleBack} className="back-button">Back</button>
+// //             </div>
+// //         </form>
+// //         </div>
+// //         </div>
+// //     );
+// // };
+
+// // export default Register;
+
+
 // import React, { useState } from 'react';
 // import axios from 'axios';
 // import { toast } from 'react-toastify';
@@ -11,10 +111,12 @@
 //     const [undertone, setUndertone] = useState('');
 //     const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
 
+//     const serverIP = 'http://127.0.0.1:5000/'
+//     // `${serverIP}/products`
 //     const handleSubmit = async (e) => {
 //         e.preventDefault();
 //         try {
-//             const response = await axios.post('http://127.0.0.1:5000/register', { 
+//             const response = await axios.post(`${serverIP}/register`, { 
 //                 name, 
 //                 username, 
 //                 skintone, 
@@ -23,74 +125,118 @@
 //             });
 //             onRegister(response.data.user_id); // Mengupdate user_id setelah registrasi sukses
             
+//             // Menampilkan informasi di konsol
+//             console.log('Registration successful:', response.data);
+
 //             // Menyesuaikan pesan sukses
 //             toast.success(`Pendaftaran berhasil! Selamat datang, ${name}!`);
 //             navigate('/login'); // Kembali ke halaman login setelah berhasil registrasi
 //         } catch (error) {
 //             if (error.response) {
+//                 console.log('Error response:', error.response); // Menampilkan error response
 //                 toast.error(error.response.data.error);
 //             } else {
+//                 console.log('Error:', error); // Menampilkan error umum
 //                 toast.error('Pendaftaran gagal. Silakan coba lagi.');
 //             }
 //         }
 //     };
-//       const handleBack = () => {
+
+//     const handleBack = () => {
 //         navigate('/'); // Navigate back to home
 //     };
 
-
 //     return (
 //         <div className="modal-background">
-//              <div className="login-container">
-//         <form onSubmit={handleSubmit} className="login-form">
-//             <h2>Register</h2>
-//             <input
+//             <div className="login-container">
+//                 <form onSubmit={handleSubmit} className="login-form">
+//                     <h2>Register</h2>
+//                     <input
+//                         type="text"
+//                         placeholder="Name"
+//                         value={name}
+//                         onChange={(e) => setName(e.target.value)}
+//                         required
+//                         className="login-input"
+//                     />
+//                     <input
+//                         type="text"
+//                         placeholder="Username"
+//                         value={username}
+//                         onChange={(e) => setUsername(e.target.value)}
+//                         required
+//                         className="login-input"
+//                     />
+//                     {/* <input
+//                         type="text"
+//                         placeholder="Skintone"
+//                         value={skintone}
+//                         onChange={(e) => setSkintone(e.target.value)}
+//                         required
+//                         className="login-input"
+//                     />
+//                     <input
+//                         type="text"
+//                         placeholder="Skintype"
+//                         value={skintype}
+//                         onChange={(e) => setSkintype(e.target.value)}
+//                         required
+//                         className="login-input"
+//                     />
+//                     <input
+//                         type="text"
+//                         placeholder="Undertone"
+//                         value={undertone}
+//                         onChange={(e) => setUndertone(e.target.value)}
+//                         required
+//                         className="login-input"
+//                     /> */}
+// <div className="login-input-2">
+//                     <select
+//   value={skintone}
+//   onChange={(e) => setSkintone(e.target.value)}
+//   required
+//   className="login-input"
+// >
+//   <option value="">Select Skintone</option>
+//   <option value="Light">Light</option>
+//   <option value="Medium Light">Medium Light</option>
+//   <option value="Medium">Medium</option>
+//   <option value="Medium Dark">Medium Dark</option>
+//   <option value="Dark">Dark</option>
+// </select>
 
-//                 type="text"
-//                 placeholder="Name"
-//                 value={name}
-//                 onChange={(e) => setName(e.target.value)}
-//                 required
-//                 className="login-input"
-//             />
-//             <input
-//                 type="text"
-//                 placeholder="Username"
-//                 value={username}
-//                 onChange={(e) => setUsername(e.target.value)}
-//                 required
-//                 className="login-input"
-//             />
-//             <input
-//                 type="text"
-//                 placeholder="Skintone"
-//                 value={skintone}
-//                 onChange={(e) => setSkintone(e.target.value)}
-//                 required
-//                 className="login-input"
-//             />
-//             <input
-//                 type="text"
-//                 placeholder="Skintype"
-//                 value={skintype}
-//                 onChange={(e) => setSkintype(e.target.value)}
-//                 required
-//                 className="login-input"
-//             />
-//             <input
-//                 type="text"
-//                 placeholder="Undertone"
-//                 value={undertone}
-//                 onChange={(e) => setUndertone(e.target.value)}
-//                 required
-//                 className="login-input"
-//             />
-//              <div className="login-regis">
-//                     <button type="submit" className="login-button">Register</button>
-//                     <button type='button' onClick={handleBack} className="back-button">Back</button>
+// <select
+//   value={skintype}
+//   onChange={(e) => setSkintype(e.target.value)}
+//   required
+//   className="login-input"
+// >
+//   <option value="">Select Skintype</option>
+//   <option value="Dry">Dry</option>
+//   <option value="Oily">Oily</option>
+//   <option value="Normal">Normal</option>
+//   <option value="Combination">Combination</option>
+// </select>
+
+// <select
+//   value={undertone}
+//   onChange={(e) => setUndertone(e.target.value)}
+//   required
+//   className="login-input"
+// >
+//   <option value="">Select Undertone</option>
+//   <option value="Warm">Warm</option>
+//   <option value="Neutral">Neutral</option>
+//   <option value="Cool">Cool</option>
+// </select>
+// </div>
+//                     <div className="login-regis">
+//                         <button type="submit" className="login-button">Register</button>
+//                         <button type='button' onClick={handleBack} className="back-button">Back</button>
+//                     </div>
+//                 </form>
 //             </div>
-//         </form>
-//         </div>
 //         </div>
 //     );
 // };
@@ -100,8 +246,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 const Register = ({ onRegister }) => {
     const [name, setName] = useState('');
@@ -109,12 +255,24 @@ const Register = ({ onRegister }) => {
     const [skintone, setSkintone] = useState('');
     const [skintype, setSkintype] = useState('');
     const [undertone, setUndertone] = useState('');
-    const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
+    const navigate = useNavigate(); // Using useNavigate for navigation
 
     const serverIP = 'http://127.0.0.1:5000/'
-    // `${serverIP}/products`
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Check if all fields are filled
+        if (!name || !username || !skintone || !skintype || !undertone) {
+            Swal.fire({
+                title: 'Form Incomplete',
+                text: 'Please fill in all fields.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            return; // Stop further execution if any field is empty
+        }
+
         try {
             const response = await axios.post(`${serverIP}/register`, { 
                 name, 
@@ -123,21 +281,34 @@ const Register = ({ onRegister }) => {
                 skintype, 
                 undertone 
             });
-            onRegister(response.data.user_id); // Mengupdate user_id setelah registrasi sukses
+            onRegister(response.data.user_id); // Update user_id after successful registration
             
-            // Menampilkan informasi di konsol
-            console.log('Registration successful:', response.data);
-
-            // Menyesuaikan pesan sukses
-            toast.success(`Pendaftaran berhasil! Selamat datang, ${name}!`);
-            navigate('/login'); // Kembali ke halaman login setelah berhasil registrasi
+            // Show SweetAlert success message
+            Swal.fire({
+                title: 'Registration Successful!',
+                text: `Welcome, ${name}!`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                // Redirect to home page after registration
+                navigate('/'); // Assuming '/home' is the home page route
+            });
         } catch (error) {
+            // Show SweetAlert error message
             if (error.response) {
-                console.log('Error response:', error.response); // Menampilkan error response
-                toast.error(error.response.data.error);
+                Swal.fire({
+                    title: 'Registration Failed',
+                    text: error.response.data.error,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             } else {
-                console.log('Error:', error); // Menampilkan error umum
-                toast.error('Pendaftaran gagal. Silakan coba lagi.');
+                Swal.fire({
+                    title: 'Registration Failed',
+                    text: 'Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
         }
     };
@@ -167,70 +338,47 @@ const Register = ({ onRegister }) => {
                         required
                         className="login-input"
                     />
-                    {/* <input
-                        type="text"
-                        placeholder="Skintone"
-                        value={skintone}
-                        onChange={(e) => setSkintone(e.target.value)}
-                        required
-                        className="login-input"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Skintype"
-                        value={skintype}
-                        onChange={(e) => setSkintype(e.target.value)}
-                        required
-                        className="login-input"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Undertone"
-                        value={undertone}
-                        onChange={(e) => setUndertone(e.target.value)}
-                        required
-                        className="login-input"
-                    /> */}
-<div className="login-input-2">
-                    <select
-  value={skintone}
-  onChange={(e) => setSkintone(e.target.value)}
-  required
-  className="login-input"
->
-  <option value="">Select Skintone</option>
-  <option value="Light">Light</option>
-  <option value="Medium Light">Medium Light</option>
-  <option value="Medium">Medium</option>
-  <option value="Medium Dark">Medium Dark</option>
-  <option value="Dark">Dark</option>
-</select>
+                    <div className="login-input-2">
+                        <select
+                            value={skintone}
+                            onChange={(e) => setSkintone(e.target.value)}
+                            required
+                            className="login-input"
+                        >
+                            <option value="">Select Skintone</option>
+                            <option value="Light">Light</option>
+                            <option value="Medium Light">Medium Light</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Medium Dark">Medium Dark</option>
+                            <option value="Dark">Dark</option>
+                        </select>
 
-<select
-  value={skintype}
-  onChange={(e) => setSkintype(e.target.value)}
-  required
-  className="login-input"
->
-  <option value="">Select Skintype</option>
-  <option value="Dry">Dry</option>
-  <option value="Oily">Oily</option>
-  <option value="Normal">Normal</option>
-  <option value="Combination">Combination</option>
-</select>
+                        <select
+                            value={skintype}
+                            onChange={(e) => setSkintype(e.target.value)}
+                            required
+                            className="login-input"
+                        >
+                            <option value="">Select Skintype</option>
+                            <option value="Dry">Dry</option>
+                            <option value="Oily">Oily</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Combination">Combination</option>
+                        </select>
 
-<select
-  value={undertone}
-  onChange={(e) => setUndertone(e.target.value)}
-  required
-  className="login-input"
->
-  <option value="">Select Undertone</option>
-  <option value="Warm">Warm</option>
-  <option value="Neutral">Neutral</option>
-  <option value="Cool">Cool</option>
-</select>
-</div>
+                        <select
+                            value={undertone}
+                            onChange={(e) => setUndertone(e.target.value)}
+                            required
+                            className="login-input"
+                        >
+                            <option value="">Select Undertone</option>
+                            <option value="Warm">Warm</option>
+                            <option value="Neutral">Neutral</option>
+                            <option value="Cool">Cool</option>
+                        </select>
+                    </div>
+
                     <div className="login-regis">
                         <button type="submit" className="login-button">Register</button>
                         <button type='button' onClick={handleBack} className="back-button">Back</button>
