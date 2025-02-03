@@ -228,6 +228,9 @@ const Header = ({ userId, setUserId }) => {
             text: 'You have successfully logged out.',
             icon: 'success',
             confirmButtonText: 'OK',
+                        customClass: {
+        popup: 'custom-swal',
+    },
         });
 
         navigate('/'); // Redirect to home after logout

@@ -895,6 +895,16 @@ nav {
 
 /* Responsively adjust text and layout for smaller screens */
 @media (max-width: 1000px) {
+  .bawah {
+      margin-top: 30px;
+      padding-right: 50px;
+      padding-left: 30px;
+      /* Jarak antar div */
+    }
+  
+    .rekomendasiBawah h2 {
+      padding-bottom: 20px;
+    }
   .main-page {
       padding-right: 20px;
       padding-left: 20px;
@@ -911,7 +921,7 @@ nav {
 
   }
   .product-grid-container {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
   }
 
   .product-card {
@@ -1050,5 +1060,12 @@ nav {
                   grid-template-columns: repeat(2, 1fr);
                   /* Ubah jadi 2 kolom */
                 }
+
+  .custom-swal {
+    width: 60% !important;
+    /* Mengatur lebar pop-up */
+    font-size: 14px !important;
+    /* Menyesuaikan ukuran font */
+  }
                                
 }

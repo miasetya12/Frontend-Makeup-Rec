@@ -270,7 +270,9 @@ const Register = ({ onRegister }) => {
                 title: 'Form Incomplete',
                 text: 'Please fill in all fields.',
                 icon: 'warning',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',            customClass: {
+        popup: 'custom-swal',
+    },
             });
             return; // Stop further execution if any field is empty
         }
@@ -290,7 +292,9 @@ const Register = ({ onRegister }) => {
                 title: 'Registration Successful!',
                 text: `Welcome, ${name}!`,
                 icon: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',            customClass: {
+        popup: 'custom-swal',
+    },
             }).then(() => {
                 // Redirect to home page after registration
                 navigate('/'); // Assuming '/home' is the home page route
@@ -302,14 +306,18 @@ const Register = ({ onRegister }) => {
                     title: 'Registration Failed',
                     text: error.response.data.error,
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',            customClass: {
+        popup: 'custom-swal',
+    },
                 });
             } else {
                 Swal.fire({
                     title: 'Registration Failed',
                     text: 'Please try again.',
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',            customClass: {
+        popup: 'custom-swal',
+    },
                 });
             }
         }

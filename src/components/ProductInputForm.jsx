@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
-
+import Swal from 'sweetalert2';
 const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPartChange, onProductCategoryChange }) => {
     const [makeupPartInput, setMakeupPartInput] = useState('');
     const [productCategory, setProductCategory] = useState('');
@@ -31,16 +31,58 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
         fetchProducts();
     }, []);
 
-const handleSubmit = () => {
-    onSubmit({
-        makeupPartInput,
-        productCategory,
-        userDescription,
-        productIdRefs: selectedProduct ? selectedProduct.value : '',  // Pass product_id
-        topN,
-        selectedApi,
-    });
+// const handleSubmit = () => {
+//     onSubmit({
+//         makeupPartInput,
+//         productCategory,
+//         userDescription,
+//         productIdRefs: selectedProduct ? selectedProduct.value : '',  // Pass product_id
+//         topN,
+//         selectedApi,
+//     });
+// };
+
+const handleSubmit = async () => {
+    // Validasi inputan
+    if (!makeupPartInput || !productCategory || !selectedProduct) {
+        Swal.fire({
+            title: 'Missing Fields!',
+            text: 'Please select Category, Sub Category, and Reference Product before proceeding.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+        });
+        return; // Stop execution if validation fails
+    }
+
+    
+        // Kirim data untuk rekomendasi
+        const response = await onSubmit({
+            makeupPartInput,
+            productCategory,
+            userDescription,
+            productIdRefs: selectedProduct.value,  // Pass product_id
+            topN,
+            selectedApi,
+        });
+
+        // Cek apakah response berhasil
+        if (response.error) {
+            throw new Error(response.error); // Tangani error jika response ada masalah
+        }
+
+        // Jika berhasil, lakukan sesuatu (misalnya, navigasi ke halaman lain atau tampilkan pesan sukses)
+        Swal.fire({
+            title: 'Success!',
+            text: 'Recommendations fetched successfully!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+                        customClass: {
+        popup: 'custom-swal',
+    },
+        });
+
 };
+
 
 
     useEffect(() => {

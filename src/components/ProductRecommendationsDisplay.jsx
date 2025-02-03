@@ -415,7 +415,10 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
         title: 'Success!',
         text: 'Recommendations have been successfully reset.',
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+                    customClass: {
+        popup: 'custom-swal',
+    },
     });
 };
 
@@ -469,7 +472,10 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
                 title: 'Success!',
                 text: 'All recommendations and order have been successfully saved.',
                 icon: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                            customClass: {
+        popup: 'custom-swal',
+    },
             });
 
             handleReset();  // Reset recommendations after success
@@ -491,7 +497,10 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
             title: 'Error!',
             text: 'There was an error saving the recommendations.',
             icon: 'error',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+                        customClass: {
+        popup: 'custom-swal',
+    },
         });
     });
 };
@@ -507,7 +516,10 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
                 title: 'Duplicate Scenario Detected!',
                 text: 'Please ensure each scenario has a unique value.',
                 icon: 'warning',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                            customClass: {
+        popup: 'custom-swal',
+    },
             });
             return;
         }
@@ -528,7 +540,10 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
                     title: 'Duplicate Order Detected!',
                     text: `Order ${order} is already used in scenario ${scenarioNumber}. Please choose a different order.`,
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                                customClass: {
+        popup: 'custom-swal',
+    },
                 });
 
                 if (resetOrderCallback) {
