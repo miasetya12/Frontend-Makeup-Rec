@@ -235,7 +235,8 @@ const ProductDetail = () => {
     const [hasRated, setHasRated] = useState(false);
     const [userRating, setUserRating] = useState(null);
 
-    const serverIP = 'https://goldfish-app-qex69.ondigitalocean.app/';
+    // const serverIP = 'http://127.0.0.1:5000/';
+    const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
 
     useEffect(() => {
         const fetchProduct = async () => {

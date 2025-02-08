@@ -81,7 +81,7 @@ const RecBottom = ({ product_id, userId }) => {
     const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     // const serverIP = 'http://127.0.0.1:5000'; // Ensure the server IP is correct
- const serverIP = 'https://goldfish-app-qex69.ondigitalocean.app/';
+    const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
 
     console.log('Received product_id in RecBottom:', product_id);
     console.log('Received userId in RecBottom:', userId);

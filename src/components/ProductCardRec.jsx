@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, info, api, onThumbsChange, scenarioNumber }) => {
+const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, info, api,cbf_weight, cf_weight,onThumbsChange, scenarioNumber }) => {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
     const [order, setOrder] = useState(0); // State untuk nilai dropdown
     // const [showInfo, setShowInfo] = useState(false);
     const [hovered, setHovered] = useState(false);
+    
     const handleThumbsUpClick = () => {
         if (thumbsUpClicked) {
             setThumbsUpClicked(false);
@@ -61,6 +62,7 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, i
 
                 {shade !== 0 && <p className="product-shade">{shade}</p>}
                 <p className="product-price">{price}</p>
+                {/* <p>cbf_weight:{cbf_weight} cfWeight:{cf_weight}</p> */}
                 {/* <p className="product-info">Rp {info}</p> */}
 
                 {stars !== undefined && (

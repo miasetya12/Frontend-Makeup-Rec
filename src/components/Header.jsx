@@ -195,7 +195,7 @@ const Header = ({ userId, setUserId }) => {
 
     // const serverIP = 'http://127.0.0.1:5000/';
 
-    const serverIP = 'https://goldfish-app-qex69.ondigitalocean.app/';
+    const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
 
     // Fetch user data based on userId
     useEffect(() => {
