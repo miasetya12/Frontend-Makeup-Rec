@@ -257,9 +257,8 @@ const Register = ({ onRegister }) => {
     const [undertone, setUndertone] = useState('');
     const navigate = useNavigate(); // Using useNavigate for navigation
 
-    const serverIP = 'http://127.0.0.1:5000/'
-    // const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
-
+   // const serverIP = 'http://127.0.0.1:5000/'
+    const serverIP = 'https://stingray-app-dgwbr.ondigitalocean.app/';
 
     const handleSubmit = async (e) => {
         e.preventDefault();

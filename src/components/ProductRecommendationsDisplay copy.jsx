@@ -19,7 +19,8 @@ const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
     console.log("Stored recommendations from localStorage:", storedRecommendations);
     setStoredRecommendations(storedRecommendations);
 }, []);
-   const serverIP = 'http://127.0.0.1:5000/'
+  // const serverIP = 'http://127.0.0.1:5000/'
+   const serverIP = 'https://stingray-app-dgwbr.ondigitalocean.app/';
     // `${serverIP}/products`
 
 useEffect(() => {

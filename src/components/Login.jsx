@@ -132,8 +132,8 @@ import '../css/Login.css';
 const Login = ({ setUserId }) => {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
-    const serverIP = 'http://127.0.0.1:5000/';
-    // const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
+    //const serverIP = 'http://127.0.0.1:5000/';
+    const serverIP = 'https://stingray-app-dgwbr.ondigitalocean.app/';
 
     const handleLogin = async (e) => {
         e.preventDefault();
