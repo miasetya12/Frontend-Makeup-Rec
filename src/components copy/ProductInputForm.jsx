@@ -243,9 +243,9 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
     const [productList, setProductList] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const serverIP = 'http://127.0.0.1:5000/'
+    // const serverIP = 'http://127.0.0.1:5000/'
 
-    // const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
+    const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
 
     // `${serverIP}/products`
     useEffect(() => {

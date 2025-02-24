@@ -12,8 +12,8 @@ const MainHome = ({ userId, setUserId }) => {
     const [productsPerPage] = useState(30); // Number of products per page
     const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
     const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
-    const serverIP = 'http://127.0.0.1:5000/'
-    // const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
+    // const serverIP = 'http://127.0.0.1:5000/'
+    const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
 
     const [userData, setUserData] = useState(null);
     useEffect(() => {
@@ -58,6 +58,7 @@ const MainHome = ({ userId, setUserId }) => {
 
         fetchAllProducts();
     }, []); 
+
     const handleSearch = () => {
         setLoading(true);
         setCurrentPage(1); // Set halaman ke 1 ketika pencarian dilakukan
@@ -69,7 +70,6 @@ const MainHome = ({ userId, setUserId }) => {
             // Check if each word from the query is present in product name or brand name
             const productString = productName.toLowerCase();
             const brandString = brandName.toLowerCase();
-
 
             // Check if each query word exists in the product or brand name
             return queryWords.every(word => productString.includes(word) || brandString.includes(word));
@@ -95,44 +95,6 @@ const MainHome = ({ userId, setUserId }) => {
 
         setLoading(false);
     };
-    // const handleSearch = () => {
-    //     setLoading(true);
-    //     setCurrentPage(1); // Set halaman ke 1 ketika pencarian dilakukan
-
-    //     // Function to check if all query words are present in product name or brand name, regardless of order
-    //     const isQueryMatch = (productName, brandName, shadeName, query) => {
-    //         const queryWords = query.toLowerCase().split(' ').filter(word => word.trim() !== "");
-
-    //         // Check if each word from the query is present in product name or brand name
-    //         const productString = productName.toLowerCase();
-    //         const brandString = brandName.toLowerCase();
-    //         const shadeString = shadeName.toLowerCase();
-
-
-    //         // Check if each query word exists in the product or brand name
-    //         return queryWords.every(word => productString.includes(word) || brandString.includes(word) || shadeString.includes(word));
-    //     };
-
-    //     // Filter products based on the search query
-    //     const filtered = allProducts.filter(product => {
-    //         return isQueryMatch(product.product_name, product.brand_name, product.shade_name , searchQuery);
-    //     });
-
-    //     setFilteredProducts(filtered);
-
-    //     // Paginate the filtered products
-    //     const indexOfLastProduct = 1 * productsPerPage; // since we are on page 1 after search
-    //     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    //     const currentProducts = filtered.slice(indexOfFirstProduct, indexOfLastProduct);
-
-    //     setProducts(currentProducts);
-
-    //     // Update totalPages based on the filtered products
-    //     const filteredTotalPages = Math.ceil(filtered.length / productsPerPage);
-    //     setTotalPages(filteredTotalPages); // Store the total pages based on filtered products
-
-    //     setLoading(false);
-    // };
 
 
     // Menambahkan useEffect untuk handle pagination pada allProducts saat pertama kali dimuat

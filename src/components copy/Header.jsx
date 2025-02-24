@@ -193,9 +193,9 @@ const Header = ({ userId, setUserId }) => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
 
-    const serverIP = 'http://127.0.0.1:5000/';
+    // const serverIP = 'http://127.0.0.1:5000/';
 
-    // const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
+    const serverIP = 'https://octopus-app-mavy6.ondigitalocean.app/';
 
     // Fetch user data based on userId
     useEffect(() => {
@@ -231,8 +231,6 @@ const Header = ({ userId, setUserId }) => {
                         customClass: {
         popup: 'custom-swal',
     },
-
-    
         });
 
         navigate('/'); // Redirect to home after logout
