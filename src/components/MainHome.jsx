@@ -13,7 +13,7 @@ const MainHome = ({ userId, setUserId }) => {
     const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
     const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
     //const serverIP = 'http://127.0.0.1:5000/'
-    const serverIP = 'https://stingray-app-dgwbr.ondigitalocean.app/';
+    const serverIP = 'https://jellyfish-app-yjyxt.ondigitalocean.app/';
 
     const [userData, setUserData] = useState(null);
     useEffect(() => {

@@ -245,7 +245,7 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
 
     //const serverIP = 'http://127.0.0.1:5000/'
 
-  const serverIP = 'https://stingray-app-dgwbr.ondigitalocean.app/';
+  const serverIP = 'https://jellyfish-app-yjyxt.ondigitalocean.app/';
 
     // `${serverIP}/products`
     useEffect(() => {

@@ -219,7 +219,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     const [loading, setLoading] = useState(false);  // Added loading state
 
     //const serverIP = 'http://127.0.0.1:5000/'
-    const serverIP = 'https://stingray-app-dgwbr.ondigitalocean.app/';
+    const serverIP = 'https://jellyfish-app-yjyxt.ondigitalocean.app/';
 
     // `${serverIP}/products`
     useEffect(() => {
