@@ -57,7 +57,11 @@ import Header from './components/Header';
 import UserReviews from './components/UserReviews';
 import MainHome from './components/MainHome';
 import ProductDetail from './components/ProductDetail';
+import ProductDetail2 from './components/ProductDetail2';
 import ProductRecommendations from './components/ProductRecommendations';
+import ProductRecommendations2 from './components/ProductRecommendations2';
+
+
 
 const App = () => {
     const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
@@ -88,9 +92,16 @@ const App = () => {
                 />
                 <Route path="/reviews/:userId" element={<UserReviews userId={userId} />} />
                 <Route path="/product/:product_id" element={<ProductDetail userId={userId} setUserId={setUserId} />} /> {/* Menambahkan setUserId */}
+                <Route path="/product-2/:product_id" element={<ProductDetail2 userId={userId} setUserId={setUserId} />} /> {/* Menambahkan setUserId */}
+                
                 <Route 
                     path="/get-recommendation" 
                     element={userId ? <ProductRecommendations userId={userId} setUserId={setUserId} /> : <Navigate to="/login" />} 
+                />
+                
+                 <Route 
+                    path="/get-recommendation-2" 
+                    element={userId ? <ProductRecommendations2 userId={userId} setUserId={setUserId} /> : <Navigate to="/login" />} 
                 />
             </Routes>
         </Router>

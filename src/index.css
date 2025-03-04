@@ -759,7 +759,8 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .grid-container {
@@ -893,6 +894,41 @@ nav {
 }
 
 
+.evaluation-results h3{
+  background-color: #640d5f;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 80px;
+  border-radius: 10px;
+  display: flex;
+  /* Mengaktifkan Flexbox */
+  align-items: center;
+  /* Vertikal: Tengah */
+  justify-content: center;
+  /* Horizontal: Tengah */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Agar teks terlihat jelas */
+  margin-top: 50px;
+}
+
+.scenario-container h2{
+  background-color: #640d5f;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    border-radius: 10px;
+    display: flex;
+    /* Mengaktifkan Flexbox */
+    align-items: center;
+    /* Vertikal: Tengah */
+    justify-content: center;
+    /* Horizontal: Tengah */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Agar teks terlihat jelas */
+
+}
 /* Responsively adjust text and layout for smaller screens */
 @media (max-width: 1000px) {
   .recommendation-sec-button button:hover {

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductInputForm from './ProductInputForm';
-import ProductRecommendationsDisplay from './ProductRecommendationsDisplay';
+import ProductRecommendationsDisplay2 from './ProductRecommendationsDisplay2';
 import Header from './Header';
 
 
-const ProductRecommendations = ({ userId, setUserId }) => {
+const ProductRecommendations2 = ({ userId, setUserId }) => {
     const [products, setProducts] = useState([]);
     const [makeupParts, setMakeupParts] = useState([]);
     const [productCategories, setProductCategories] = useState([]);
     const [userData, setUserData] = useState(null);
-    const [recommendedProducts, setRecommendedProducts] = useState([]);
+    const [recommendedProducts_2, setRecommendedProducts_2] = useState([]);
     const [selectedApi, setSelectedApi] = useState({ api: '', weightConfig: null });
     const [loading, setLoading] = useState(false);  // Added loading state
 
@@ -72,7 +72,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
                 { cbfWeight: 0, cfWeight: 1 }               
             ];
 
-    const apiName = 'hybrid_tfidf'; // Nama API yang sedang digunakan
+    const apiName = 'hybrid_tfidf2'; // Nama API yang sedang digunakan
      
     const recommendations = await Promise.all(
     weightConfigs.map(async (config) => {
@@ -124,7 +124,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
             const allRecommendations = recommendations.flat();
 
             // Set semua rekomendasi dan update API/bobot yang digunakan
-            setRecommendedProducts(allRecommendations);
+            setRecommendedProducts_2(allRecommendations);
 
             // Pilih konfigurasi terakhir sebagai yang digunakan
             const lastConfig = weightConfigs[weightConfigs.length - 1];
@@ -134,7 +134,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
             });
 
             // Simpan di localStorage
-            localStorage.setItem('recommendedProducts', JSON.stringify(allRecommendations));
+            localStorage.setItem('recommendedProducts_2', JSON.stringify(allRecommendations));
         } catch (error) {
             console.error('Error fetching recommendations:', error);
         } finally {
@@ -143,15 +143,15 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     };
 
     const handleReset = () => {
-        setRecommendedProducts([]);
-        localStorage.removeItem('recommendedProducts');
+        setRecommendedProducts_2([]);
+        localStorage.removeItem('recommendedProducts_2');
     };
 
     return (
         <div>
             <Header userId={userId} setUserId={setUserId} />
             <div className="main-page">
-            <h2>Product Recommendations 1 (Lakukan sebanyak 2 kali)</h2>
+            <h2>Product Recommendations 2 (Lakukan sebanyak 2 kali)</h2>
 
             {userData ? (
                 <>
@@ -177,8 +177,8 @@ const ProductRecommendations = ({ userId, setUserId }) => {
                             <div className="spinner"></div>
                         </div>
                     ) : (
-                        <ProductRecommendationsDisplay
-                            recommendedProducts={recommendedProducts}
+                        <ProductRecommendationsDisplay2
+                            recommendedProducts_2={recommendedProducts_2}
                             onReset={handleReset}
                         />
                     )}
@@ -191,4 +191,4 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     );
 };
 
-export default ProductRecommendations;
+export default ProductRecommendations2;

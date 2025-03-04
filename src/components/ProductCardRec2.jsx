@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, info, api,cbf_weight, cf_weight,onThumbsChange, scenarioNumber }) => {
+const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, info, api,cbf_weight, cf_weight,onThumbsChange, scenarioNumber }) => {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
     const [order, setOrder] = useState(0); // State untuk nilai dropdown
@@ -52,7 +52,7 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, i
             style={{ position: 'relative' }} 
         >
            
-            <Link to={`/product/${product_id}`} className="product-link">
+            <Link to={`/product-2/${product_id}`} className="product-link">
                 <div className="image-container">
                     <img src={image} alt={name} />
                 </div>
@@ -132,4 +132,4 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, i
     );
 };
 
-export default ProductCardRec;
+export default ProductCardRec2;

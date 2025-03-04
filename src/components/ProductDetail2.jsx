@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header'; 
-import RecBottom from './RecBottom';
+import RecBottom2 from './RecBottom2';
 
-const ProductDetail = () => {
+const ProductDetail2 = () => {
     const { product_id } = useParams();
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
@@ -146,7 +146,7 @@ const ProductDetail = () => {
 
             <div className="bawah">
                 {userId ? (
-                    <RecBottom product_id={product_id} userId={userId} />
+                    <RecBottom2 product_id={product_id} userId={userId} />
                 ) : (
                     <div style={{ textAlign: 'center', marginTop: '20px' }}>
                         <p>Please <button onClick={() => navigate('/login')} style={{ textDecoration: 'underline', background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}>Login</button> to see recommendations.</p>
@@ -157,4 +157,4 @@ const ProductDetail = () => {
     );
 };
 
-export default ProductDetail;
+export default ProductDetail2;

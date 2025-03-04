@@ -30,47 +30,11 @@ const ScenarioOrder = ({ onOrderChange }) => {
   };
 
   return (
-//     <div className="scenario-container">
-//       {/* <div className="form-container">
-//         <h2>Order the scenarios from the best to worst:</h2>
-//         <form>
-//           {['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh'].map((position, index) => (
-//             <div key={position}>
-//               <label>{index + 1}</label>
-//               <select value={order[position]} onChange={(e) => handleChange(e, position)}>
-//                 <option value="">Select Scenario 1-7</option>
-//                 {[...Array(7).keys()].map(i => (
-//                   <option key={i} value={`Scenario ${i + 1}`}>
-//                     Scenario {i + 1}
-//                   </option>
-//                 ))}
-//               </select>
-//             </div>
-//           ))}
-//         </form>
-//       </div> */}
-
-// <div className="form-container">
-//     <h2>Order the scenarios from the best to worst:</h2>
-//     <form>
-//         {['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh'].map((ordinal, index) => (
-//             <div key={ordinal}>
-//                 <label>{ordinal}</label>
-//                 <select value={order[ordinal.toLowerCase()]} onChange={(e) => handleChange(e, ordinal.toLowerCase())}>
-//                     <option value="">Select Scenario 1-7</option>
-//                     {[...Array(7).keys()].map(i => (
-//                         <option key={i} value={`Scenario ${i + 1}`}>
-//                             Scenario {i + 1}
-//                         </option>
-//                     ))}
-//                 </select>
-//             </div>
-//         ))}
-//     </form>
-// </div>
-
 <div className="scenario-container">
-  <h2>Order the scenarios from the best to worst:</h2>
+   {/* <h3>Order the scenarios from the best to worst:</h3> */}
+   {/* <p>Bisa memberikan urutan berdasarkan evaluation summarynya, apakah menilai dari kerelevanan atau bisa mepertimbangkan berdasarkan urutan rekomendasi</p> */}
+
+  
   <form className="grid-container">
     {['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh'].map((ordinal, index) => (
       <div className="grid-item" key={ordinal}>
@@ -86,16 +50,15 @@ const ScenarioOrder = ({ onOrderChange }) => {
       </div>
     ))}
   </form>
-{/* 
-      <div className="result-container">
-        <h3>Selected Order:</h3>
-        <ul>
-          {Object.entries(order).map(([key, value]) => (
-            value && <li key={key}>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`}</li>
-          ))}
-        </ul>
-      </div> */}
+
+ <div style={{ textAlign: "center" }}>
+                    <p><b>Setelah semua terisi, klik Save Evaluation</b></p>
+                </div>
     </div>
+
+
+
+
   );
 };
 

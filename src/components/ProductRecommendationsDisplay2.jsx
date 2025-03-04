@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';  // Import SweetAlert2
-import ProductCardRec from './ProductCardRec';
+import ProductCardRec2 from './ProductCardRec2';
 import ScenarioOrder from './ScenarioOrder';
 
-const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
+const ProductRecommendationsDisplay2 = ({ recommendedProducts_2, onReset }) => {
     const [storedRecommendations, setStoredRecommendations] = useState([]);
     const [userRecommendations, setUserRecommendations] = useState([]);
      const [evaluationResults, setEvaluationResults] = useState(null);
@@ -22,7 +22,7 @@ const [orderValues, setOrderValues] = useState({});
     });
 
     useEffect(() => {
-        const storedRecommendations = JSON.parse(localStorage.getItem('recommendedProducts')) || [];
+        const storedRecommendations = JSON.parse(localStorage.getItem('recommendedProducts_2')) || [];
         console.log("Stored recommendations from localStorage:", storedRecommendations);
         setStoredRecommendations(storedRecommendations);
     }, []);
@@ -31,25 +31,25 @@ const [orderValues, setOrderValues] = useState({});
     const serverIP = 'https://starfish-app-lubc7.ondigitalocean.app/';
 
     useEffect(() => {
-        if (recommendedProducts.length > 0) {
-            console.log("New recommendations added:", recommendedProducts);
-            localStorage.setItem('recommendedProducts', JSON.stringify(recommendedProducts));
-            setStoredRecommendations(recommendedProducts);
+        if (recommendedProducts_2.length > 0) {
+            console.log("New recommendations added:", recommendedProducts_2);
+            localStorage.setItem('recommendedProducts_2', JSON.stringify(recommendedProducts_2));
+            setStoredRecommendations(recommendedProducts_2);
         }
-    }, [recommendedProducts]);
+    }, [recommendedProducts_2]);
 
     const handleReset = () => {
     console.log("Resetting recommendations...");
 
     // Hapus data rekomendasi dari localStorage
-    localStorage.removeItem('recommendedProducts');
+    localStorage.removeItem('recommendedProducts_2');
     localStorage.removeItem('userRecommendations');
     localStorage.removeItem('orderData');
     localStorage.removeItem('evaluationResults');
     
     
     // Verifikasi bahwa data sudah dihapus dari localStorage
-    console.log("recommendedProducts in localStorage after reset:", localStorage.getItem('recommendedProducts'));
+    console.log("recommendedProducts_2 in localStorage after reset:", localStorage.getItem('recommendedProducts_2'));
     console.log("userRecommendations in localStorage after reset:", localStorage.getItem('userRecommendations'));
     console.log("orderData in localStorage after reset:", localStorage.getItem('orderData'));
 
@@ -143,7 +143,7 @@ const handleSaveAll = () => {
         timestamp: Date.now()
     };
 
-    fetch(`${serverIP}/save_recommendation`, {
+    fetch(`${serverIP}/save_recommendation_2`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ const handleSaveAll = () => {
             timestamp: Date.now()
         };
 
-        fetch(`${serverIP}/save_order`, {
+        fetch(`${serverIP}/save_order_2`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -392,7 +392,7 @@ return (
                             <ul>
                                 <li>Apabila terdapat rekomendasi yang mirip di beberapa skenario, silakan abaikan dan tetap fokus menilai setiap skenario secara terpisah.</li>
                                 <li>Hindari mengklik produk saat mengisi evaluasi, karena hal tersebut dapat menghapus hasil evaluasi yang sudah dilakukan, sehingga Anda perlu mengulang pengisian dari awal.</li>
-                                 <li>Jika mengevaluasinya tidak berurutan, mohon untuk di refresh kembali dan diisikan ulang</li>
+                                <li>Jika mengevaluasinya tidak berurutan, mohon untuk di refresh kembali dan diisikan ulang</li>
                             </ul>
 
                             <div className="product-grid-container">
@@ -400,7 +400,7 @@ return (
                                     <div key={`${product.product_id}-${start + idx}`} className="product-card-wrapper">
                                         <div className="product-card">
                                             <p className="product-order">Order {idx + 1}</p>
-                                            <ProductCardRec
+                                            <ProductCardRec2
                                                 product_id={product.product_id}
                                                 image={product.image_url}
                                                 name={product.product_name}
@@ -429,13 +429,15 @@ return (
                 {/* <p>Setelah semua terisi, klik Get Evaluation Summary</p> */}
 
                 <div style={{ textAlign: "center" }}>
-                    <p><b>Setelah semua terisi, klik Get Evaluation Summary</b></p>
+                    <p><b>Setelah semua terisi, klik Get Evaluation Summary 2</b></p>
                 </div>
 
                     <div className="recommendation-sec-button">
+                        {/* <button onClick={handleReset}>Reset Recommendations</button> */}
                         <button className="evaluate-btn" onClick={handleEvaluate}>
                             Get Evaluation Summary (2)
                         </button>
+                         
                     </div>
 
                     {evaluationResults && evaluationResults.length > 0 ? (
@@ -450,8 +452,8 @@ return (
                                     Product Order Percentage = {result.ndcg.toFixed(2)}
                                 </p>
                              */}
-                                <p><b>Persentase Produk Relevan</b> = Persentase produk yang dianggap <b>relevan berdasarkan penilaian Anda</b> (semakin tinggi, semakin relevan)</p>
-                                <p> <b>Persentase Kesesuaian Urutan</b> = Persentase <b>kesesuaian urutan produk dalam sistem</b> dengan <b>urutan yang Anda tentukan</b>(semakin tinggi, semakin sesuai urutannya)</p>
+                                <p><b>Persentase Produk Relevan</b> = Persentase produk yang dianggap <b>relevan berdasarkan penilaian Anda</b></p>
+                                <p> <b>Persentase Kesesuaian Urutan</b> = Persentase <b>kesesuaian urutan produk dalam sistem</b> dengan <b>urutan yang Anda tentukan</b> </p>
                                 {evaluationResults.map((result, index) => (
                                     <ul>
                                         <li> <p key={index}>
@@ -505,4 +507,4 @@ return (
 
 };
 
-export default ProductRecommendationsDisplay;
+export default ProductRecommendationsDisplay2;

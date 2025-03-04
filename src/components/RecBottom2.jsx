@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 
-const RecBottom = ({ product_id, userId }) => {
+const RecBottom2 = ({ product_id, userId }) => {
     const [userData, setUserData] = useState(null);
     const [products, setProducts] = useState([]);
     const [productsAll, setProductsAll] = useState([]);
@@ -104,7 +104,7 @@ const RecBottom = ({ product_id, userId }) => {
         try {
             const cbfWeight = 1;
             const cfWeight = 1;
-            const apiName = 'hybrid_tfidf'; // API name being used
+            const apiName = 'hybrid_tfidf2'; // API name being used
 
             const apiEndpoint = `${serverIP}/recommend/${apiName}`;
             const response = await axios.get(apiEndpoint, {
@@ -192,7 +192,7 @@ const RecBottom = ({ product_id, userId }) => {
     );
 };
 
-export default RecBottom;
+export default RecBottom2;
 
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
