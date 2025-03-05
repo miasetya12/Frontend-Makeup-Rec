@@ -13,8 +13,7 @@ const MainHome = ({ userId, setUserId }) => {
     const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
     const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
     // const serverIP = 'http://127.0.0.1:5000/'
-    const serverIP = 'https://starfish-app-lubc7.ondigitalocean.app/';
-
+    const serverIP = 'https://squid-app-owu38.ondigitalocean.app/';
     const [userData, setUserData] = useState(null);
     useEffect(() => {
         // Fetch the user data based on the userId

@@ -15,8 +15,7 @@ const ProductRecommendations = ({ userId, setUserId }) => {
     const [loading, setLoading] = useState(false);  // Added loading state
 
     // const serverIP = 'http://127.0.0.1:5000/'
-    const serverIP = 'https://starfish-app-lubc7.ondigitalocean.app/';
-
+ const serverIP = 'https://squid-app-owu38.ondigitalocean.app/';
     // `${serverIP}/products`
     useEffect(() => {
         const fetchUserData = async () => {

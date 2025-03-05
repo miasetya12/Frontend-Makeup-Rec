@@ -9,7 +9,7 @@ const Header = ({ userId, setUserId }) => {
 
     // const serverIP = 'http://127.0.0.1:5000/';
 
-    const serverIP = 'https://starfish-app-lubc7.ondigitalocean.app/';
+    const serverIP = 'https://squid-app-owu38.ondigitalocean.app/';
 
     // Fetch user data based on userId
     useEffect(() => {
