@@ -28,7 +28,7 @@ const [orderValues, setOrderValues] = useState({});
     }, []);
 
     // const serverIP = 'http://127.0.0.1:5000/'
-const serverIP = 'https://squid-app-owu38.ondigitalocean.app/';
+    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     useEffect(() => {
         if (recommendedProducts.length > 0) {
             console.log("New recommendations added:", recommendedProducts);

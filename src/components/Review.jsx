@@ -11,7 +11,7 @@ const Review = ({ userId, setUserId }) => {
     const [loading, setLoading] = useState(true);
 
     // const serverIP = 'http://127.0.0.1:5000/'
-   const serverIP = 'https://squid-app-owu38.ondigitalocean.app/';
+   const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     // `${serverIP}/products`
     useEffect(() => {
         const fetchProducts = async () => {

@@ -10,7 +10,7 @@ const RecBottom2 = ({ product_id, userId }) => {
     const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     // const serverIP = 'http://127.0.0.1:5000'; // Ensure the server IP is correct
-  const serverIP = 'https://squid-app-owu38.ondigitalocean.app/';
+ const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
 
     console.log('Received product_id in RecBottom:', product_id);
     console.log('Received userId in RecBottom:', userId);
