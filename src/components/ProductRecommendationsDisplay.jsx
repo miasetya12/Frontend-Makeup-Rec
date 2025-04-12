@@ -27,8 +27,8 @@ const [orderValues, setOrderValues] = useState({});
         setStoredRecommendations(storedRecommendations);
     }, []);
 
-    // const serverIP = 'http://127.0.0.1:5000/'
-    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
+    const serverIP = 'http://127.0.0.1:5000/';
+    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     useEffect(() => {
         if (recommendedProducts.length > 0) {
             console.log("New recommendations added:", recommendedProducts);
@@ -469,12 +469,12 @@ return (
                             
                             ))}
 
-                             <h3>Order All Scenarios</h3>
-                             <ul>
+                             <h3>Rank All Scenarios</h3>
+                             {/* <ul>
                                 <li><p>Silakan tentukan <b>urutan skenario terbaik hingga terburuk</b> berdasarkan <b>ringkasan evaluasi</b>, apakah lebih menekankan pada <b>relevansi produk</b> dan/atau mempertimbangkan <b>urutan rekomendasi</b>.</p> </li>
                                 <li><p>Posisi <b>"First"</b> digunakan untuk <b>skenario terbaik</b> (berdasarkan <b>relevansi</b> dan/atau <b>urutan rekomendasi</b>), sedangkan posisi <b>"Seventh"</b> untuk <b>skenario dengan hasil paling kurang optimal</b>.</p></li>
                                 <li><p>Pastikan setiap <b>posisi</b> memiliki <b>skenario yang berbeda</b> satu sama lain.</p></li>
-                             </ul>
+                             </ul> */}
                         
                         </div>
 

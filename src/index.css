@@ -110,6 +110,15 @@ nav {
   /* Jarak antar produk */
 }
 
+.product-grid-container-2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* Menampilkan 5 produk per baris */
+  gap: 20px;
+  margin-bottom: 10px;
+  /* Jarak antar produk */
+}
+
 .product-card-wrapper {
   display: flex;
   flex-direction: column;

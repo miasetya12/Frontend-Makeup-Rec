@@ -11,9 +11,9 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
     const [productList, setProductList] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
 
-    // const serverIP = 'http://127.0.0.1:5000/'
+    const serverIP = 'http://127.0.0.1:5000/'
 
-    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
+    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
 
     // `${serverIP}/products`
     useEffect(() => {
@@ -222,7 +222,7 @@ const handleSubmit = async () => {
                 />
             </label>
 
-            <button onClick={handleSubmit}>Get Recommendation (1)</button>
+            <button onClick={handleSubmit}>Get Recommendation</button>
         </div>
     );
 };

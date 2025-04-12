@@ -7,9 +7,9 @@ const Header = ({ userId, setUserId }) => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
 
-    // const serverIP = 'http://127.0.0.1:5000/';
+    const serverIP = 'http://127.0.0.1:5000/';
 
-    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
+    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
 
     // Fetch user data based on userId
     useEffect(() => {
@@ -67,11 +67,14 @@ const Header = ({ userId, setUserId }) => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/review">Buy & Review</Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation">Recommendation 1</Link>
-                        </li>
-                         <li className="nav-item">
+                        </li> */}
+                         {/* <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation-2">Recommendation 2</Link>
+                        </li> */}
+                         <li className="nav-item">
+                            <Link className="nav-link" to="/get-recommendation-3">Get Recommendation</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto">

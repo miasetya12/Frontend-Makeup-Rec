@@ -11,8 +11,8 @@ const Register = ({ onRegister }) => {
     const [undertone, setUndertone] = useState('');
     const navigate = useNavigate(); // Using useNavigate for navigation
 
-    //    const serverIP = 'http://127.0.0.1:5000'; 
-   const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
+        const serverIP = 'http://127.0.0.1:5000'; 
+//    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     const handleSubmit = async (e) => {
         e.preventDefault();
 

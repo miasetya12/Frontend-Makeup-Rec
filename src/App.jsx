@@ -60,7 +60,7 @@ import ProductDetail from './components/ProductDetail';
 import ProductDetail2 from './components/ProductDetail2';
 import ProductRecommendations from './components/ProductRecommendations';
 import ProductRecommendations2 from './components/ProductRecommendations2';
-
+import ProductRecommendations3 from './components/ProductRecommendations3';
 
 
 const App = () => {
@@ -102,6 +102,10 @@ const App = () => {
                  <Route 
                     path="/get-recommendation-2" 
                     element={userId ? <ProductRecommendations2 userId={userId} setUserId={setUserId} /> : <Navigate to="/login" />} 
+                />
+                 <Route 
+                    path="/get-recommendation-3" 
+                    element={userId ? <ProductRecommendations3 userId={userId} setUserId={setUserId} /> : <Navigate to="/login" />} 
                 />
             </Routes>
         </Router>
