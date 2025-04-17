@@ -11,7 +11,7 @@ const ScenarioOrder = ({ onOrderChange }) => {
     sixth: '',
     seventh: ''
   });
-  // Use useEffect to update parent when order changes
+  
   useEffect(() => {
     onOrderChange(order); // Call parent callback after state is set
     console.log("Order received from child:", order); // Log after the update
@@ -30,7 +30,7 @@ const ScenarioOrder = ({ onOrderChange }) => {
   };
 
   return (
-<div className="scenario-container">
+    <div className="scenario-container">
    {/* <h3>Order the scenarios from the best to worst:</h3> */}
    {/* <p>Bisa memberikan urutan berdasarkan evaluation summarynya, apakah menilai dari kerelevanan atau bisa mepertimbangkan berdasarkan urutan rekomendasi</p> */}
 
@@ -55,10 +55,6 @@ const ScenarioOrder = ({ onOrderChange }) => {
                     <p><b>Setelah semua terisi, klik Save Evaluation</b></p>
                 </div>
     </div>
-
-
-
-
   );
 };
 

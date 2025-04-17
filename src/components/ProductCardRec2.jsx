@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, info, api,cbf_weight, cf_weight,onThumbsChange, scenarioNumber }) => {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
-    const [order, setOrder] = useState(0); // State untuk nilai dropdown
-    // const [showInfo, setShowInfo] = useState(false);
+    const [order, setOrder] = useState(0);
     const [hovered, setHovered] = useState(false);
     
     const handleThumbsUpClick = () => {
@@ -33,7 +32,6 @@ const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, 
     const handleOrderChange = (event) => {
         const newOrder = parseInt(event.target.value, 10);
         setOrder(newOrder);
-        // Kirim nilai dropdown bersama data thumbs up/down ke onThumbsChange
         onThumbsChange(product_id, thumbsUpClicked, thumbsDownClicked, scenarioNumber, newOrder);
     };
 
@@ -45,10 +43,8 @@ const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, 
 
     return (
         <div className="product-card-container"
-        // onMouseEnter={() => setShowInfo(true)} 
-        // onMouseLeave={() => setShowInfo(false)} 
-        onMouseEnter={() => setHovered(true)} // Set hover state to true
-            onMouseLeave={() => setHovered(false)} // Reset hover state to false
+        onMouseEnter={() => setHovered(true)} 
+            onMouseLeave={() => setHovered(false)} 
             style={{ position: 'relative' }} 
         >
            
@@ -62,8 +58,6 @@ const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, 
 
                 {shade !== 0 && <p className="product-shade">{shade}</p>}
                 <p className="product-price">{price}</p>
-                {/* <p>cbf_weight:{cbf_weight} cfWeight:{cf_weight}</p> */}
-                {/* <p className="product-info">Rp {info}</p> */}
 
                 {stars !== undefined && (
                     <div className="stars">
@@ -71,13 +65,6 @@ const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, 
                     </div>
                 )}
             </Link>
-
-            {/* {showInfo && (
-                            <div className="product-info">
-                                <p>{info}</p>
-                            </div>
-                        )} */}
-        
         
             <div className="thumbs-container">
                 {/* Thumbs Up Button */}
@@ -112,14 +99,14 @@ const ProductCardRec2 = ({ product_id, image, name, brand, shade, price, stars, 
                     value={order}
                     onChange={handleOrderChange}
                     
-                       style={{
-        marginTop: '10px',
-        padding: '5px',
-        borderRadius: '5px',
-        width: '110px',
-        textAlign: 'center',
-        textAlignLast: 'center',
-    }}
+                    style={{
+                        marginTop: '10px',
+                        padding: '5px',
+                        borderRadius: '5px',
+                        width: '110px',
+                        textAlign: 'center',
+                        textAlignLast: 'center',
+                    }}
                 >
                     <option value={0} >Give Order</option>
                     {[1, 2, 3, 4, 5].map((num) => (

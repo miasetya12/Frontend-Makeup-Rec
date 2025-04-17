@@ -7,9 +7,9 @@ import ScenarioOrder from './ScenarioOrder';
 const ProductRecommendationsDisplay = ({ recommendedProducts, onReset }) => {
     const [storedRecommendations, setStoredRecommendations] = useState([]);
     const [userRecommendations, setUserRecommendations] = useState([]);
-     const [evaluationResults, setEvaluationResults] = useState(null);
-     const [showScenarioOrder, setShowScenarioOrder] = useState(false);
-const [orderValues, setOrderValues] = useState({});
+    const [evaluationResults, setEvaluationResults] = useState(null);
+    const [showScenarioOrder, setShowScenarioOrder] = useState(false);
+    const [orderValues, setOrderValues] = useState({});
 
     const [orderData, setOrderData] = useState({
         first: '',
@@ -28,7 +28,6 @@ const [orderValues, setOrderValues] = useState({});
     }, []);
 
     const serverIP = 'http://127.0.0.1:5000/';
-    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     useEffect(() => {
         if (recommendedProducts.length > 0) {
             console.log("New recommendations added:", recommendedProducts);
@@ -108,7 +107,6 @@ const handleSaveAll = () => {
 
     const duplicateFields = [];
     if (uniqueValues.size < filledValues.length) {
-        // Ada duplikat, cari field yang bermasalah dan reset
         requiredFields.forEach(field => {
             if (filledValues.includes(orderData[field]) && filledValues.filter(val => val === orderData[field]).length > 1) {
                 orderData[field] = "Select Scenario 1-7";
@@ -117,7 +115,6 @@ const handleSaveAll = () => {
         });
     }
 
-    // Cek apakah ada field yang masih di default
     const missingFields = requiredFields.filter(field => orderData[field] === "Select Scenario 1-7");
 
     if (missingFields.length > 0) {
@@ -208,11 +205,6 @@ const handleSaveAll = () => {
 
     const handleOrderChange = (order) => {
         console.log("Order received from child:", order);
-
-        // const filledScenarios = Object.values(order).filter(scenario => scenario);
-        // const uniqueScenarios = new Set(filledScenarios);
-
-
         const filledScenarios = Object.values(order).filter(scenario => scenario && scenario !== "Select Scenario 1-7");
         const uniqueScenarios = new Set(filledScenarios);
 
@@ -284,7 +276,7 @@ const handleSaveAll = () => {
 
 
 const handleEvaluate = () => {
-    setEvaluationResults([]); // Reset hasil evaluasi sebelum mengambil data baru
+    setEvaluationResults([]);
     setShowScenarioOrder(false);
     const userId = localStorage.getItem('userId');
 

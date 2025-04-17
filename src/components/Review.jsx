@@ -11,8 +11,6 @@ const Review = ({ userId, setUserId }) => {
     const [loading, setLoading] = useState(true);
 
     const serverIP = 'http://127.0.0.1:5000/'
-//    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
-    // `${serverIP}/products`
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -44,10 +42,6 @@ const Review = ({ userId, setUserId }) => {
 
         fetchProducts().then(fetchReviews); // Memastikan produk di-fetch lebih awal
     }, [userId]);
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
 
     // Fungsi untuk menemukan produk berdasarkan ID
     const getProductById = (productId) => {

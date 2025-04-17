@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -16,7 +15,6 @@ const ProductDetail = () => {
     const [userRating, setUserRating] = useState(null);
 
     const serverIP = 'http://127.0.0.1:5000';
-//    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -30,73 +28,29 @@ const ProductDetail = () => {
             }
         };
 
-        // const fetchUserRating = async () => {
-        //     if (!userId) return;
+        const fetchUserRating = async () => {
+            if (!userId) return;
 
-        //     try {
-        //         const response = await axios.get(`${serverIP}/reviews/${userId}`);
-        //         if (Array.isArray(response.data.reviews)) {
-        //             const userReview = response.data.reviews.find(review => review.product_id === parseInt(product_id));
-        //             if (userReview) {
-        //                 setUserRating(userReview.stars);
-        //                 setHasRated(true);
-        //             } else {
-        //                 setHasRated(false);
-        //             }
-        //         } else {
-        //             console.error('Invalid response format for reviews:', response.data.reviews);
-        //             setMessage('Error: Invalid response format for reviews');
-        //         }
-        //     } catch (error) {
-        //         console.error('Error fetching user reviews:', error);
-        //         setMessage('Error fetching reviews');
-        //     }
-        // };
-
-//         const fetchUserRating = async () => {
-//     if (!userId) return;
-
-//     try {
-//         const response = await axios.get(`${serverIP}/reviews/${userId}`);
-//         if (Array.isArray(response.data.reviews)) {
-//             const userReview = response.data.reviews.find(review => review.product_id === parseInt(product_id));
-//             if (userReview) {
-//                 setUserRating(userReview.stars);
-//                 setHasRated(true);
-//             } else {
-//                 console.log("No review for this product by the user.");  // <--- Ini ditambahkan
-//                 setHasRated(false);
-//             }
-//         } else {
-//             console.error('Invalid response format for reviews:', response.data.reviews);
-//             setMessage('Error: Invalid response format for reviews');
-//         }
-//     } catch (error) {
-//         console.error('Error fetching user reviews:', error);
-//         setMessage('Error fetching reviews');
-//     }
-// };
-
-const fetchUserRating = async () => {
-    if (!userId) return;
-
-    try {
-        const response = await axios.get(`${serverIP}/reviews/${userId}`);
-        if (Array.isArray(response.data.reviews)) {
-            if (response.data.reviews.length > 0) {
-                setHasRated(true);
-            } else {
-                setHasRated(false);
+            try {
+                const response = await axios.get(`${serverIP}/reviews/${userId}`);
+                if (Array.isArray(response.data.reviews)) {
+                    const found = response.data.reviews.find(r => r.product_id === parseInt(product_id));
+                    if (found) {
+                        setUserRating(found.stars);
+                        setHasRated(true);
+                    } else {
+                        setHasRated(false);
+                        setUserRating(null);
+                    }
+                } else {
+                    console.error('Invalid response format for reviews:', response.data.reviews);
+                    setMessage('Error: Invalid response format for reviews');
+                }
+            } catch (error) {
+                console.error('Error fetching user reviews:', error);
+                setMessage('Error fetching reviews');
             }
-        } else {
-            console.error('Invalid response format for reviews:', response.data.reviews);
-            setMessage('Error: Invalid response format for reviews');
-        }
-    } catch (error) {
-        console.error('Error fetching user reviews:', error);
-        setMessage('Error fetching reviews');
-    }
-};
+        };
 
         fetchProduct();
         fetchUserRating();
@@ -131,6 +85,7 @@ const fetchUserRating = async () => {
             localStorage.setItem('ratedProducts', JSON.stringify(ratedProducts));
 
             setHasRated(true);
+            setUserRating(parseInt(rating)); // update langsung supaya tidak perlu refresh
         } catch (error) {
             console.error('Error submitting rating:', error);
             setMessage('Error submitting rating');
@@ -152,7 +107,11 @@ const fetchUserRating = async () => {
 
                     <div className="rate-section">
                         {hasRated ? (
-                            <p>Your Rating: {userRating || rating}</p>
+                            userRating !== null ? (
+                                <p>Your Rating: {userRating}</p>
+                            ) : (
+                                <p>Loading your rating...</p>
+                            )
                         ) : (
                             <form onSubmit={handleSubmitRating} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <select

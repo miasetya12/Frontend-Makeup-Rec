@@ -3,21 +3,17 @@ import ProductCard from './ProductCard';
 import Header from './Header';
 
 const MainHome = ({ userId, setUserId }) => {
-    const [products, setProducts] = useState([]); // State to store products on the current page
-    const [allProducts, setAllProducts] = useState([]); // State to store all products
-    const [searchQuery, setSearchQuery] = useState(""); // State for search query
-    // State for user data
-    const [loading, setLoading] = useState(false); // State for loading indicator
-    const [currentPage, setCurrentPage] = useState(1); // State for current page
-    const [productsPerPage] = useState(30); // Number of products per page
-    const [totalPages, setTotalPages] = useState(1); // State for total pages based on filtered results
-    const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
+    const [products, setProducts] = useState([]); 
+    const [allProducts, setAllProducts] = useState([]); 
+    const [searchQuery, setSearchQuery] = useState(""); 
+    const [loading, setLoading] = useState(false); 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(30); 
+    const [totalPages, setTotalPages] = useState(1);
+    const [filteredProducts, setFilteredProducts] = useState([]); 
     const serverIP = 'http://127.0.0.1:5000/'
-    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     const [userData, setUserData] = useState(null);
     useEffect(() => {
-        // Fetch the user data based on the userId
-        
         const fetchUserData = async () => {
             if (userId) {
                 try {
@@ -27,7 +23,7 @@ const MainHome = ({ userId, setUserId }) => {
                         throw new Error('Network response was not ok');
                     }
                     const data = await response.json();
-                    setUserData(data); // Store the user data
+                    setUserData(data);
                 } catch (error) {
                     console.error('Error fetching user data:', error);
                 }
@@ -37,10 +33,7 @@ const MainHome = ({ userId, setUserId }) => {
         fetchUserData();
     }, [userId]);
     
-   
-    // `${serverIP}/products`
     useEffect(() => {
-        // Fetch all products initially
         const fetchAllProducts = async () => {
             try {
                 const response = await fetch(`${serverIP}/products`);
@@ -48,8 +41,8 @@ const MainHome = ({ userId, setUserId }) => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setAllProducts(data); // Set all products in state
-                setProducts(data.slice(0, productsPerPage)); // Set the products for the first page
+                setAllProducts(data); 
+                setProducts(data.slice(0, productsPerPage));
             } catch (error) {
                 console.error('Error fetching all products:', error);
             }
@@ -57,20 +50,14 @@ const MainHome = ({ userId, setUserId }) => {
 
         fetchAllProducts();
     }, []); 
+    
     const handleSearch = () => {
         setLoading(true);
-        setCurrentPage(1); // Set halaman ke 1 ketika pencarian dilakukan
-
-        // Function to check if all query words are present in product name or brand name, regardless of order
+        setCurrentPage(1); 
         const isQueryMatch = (productName, brandName, query) => {
             const queryWords = query.toLowerCase().split(' ').filter(word => word.trim() !== "");
-
-            // Check if each word from the query is present in product name or brand name
             const productString = productName.toLowerCase();
             const brandString = brandName.toLowerCase();
-
-
-            // Check if each query word exists in the product or brand name
             return queryWords.every(word => productString.includes(word) || brandString.includes(word));
         };
 
@@ -82,7 +69,7 @@ const MainHome = ({ userId, setUserId }) => {
         setFilteredProducts(filtered);
 
         // Paginate the filtered products
-        const indexOfLastProduct = 1 * productsPerPage; // since we are on page 1 after search
+        const indexOfLastProduct = 1 * productsPerPage;
         const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
         const currentProducts = filtered.slice(indexOfFirstProduct, indexOfLastProduct);
 
@@ -94,47 +81,7 @@ const MainHome = ({ userId, setUserId }) => {
 
         setLoading(false);
     };
-    // const handleSearch = () => {
-    //     setLoading(true);
-    //     setCurrentPage(1); // Set halaman ke 1 ketika pencarian dilakukan
 
-    //     // Function to check if all query words are present in product name or brand name, regardless of order
-    //     const isQueryMatch = (productName, brandName, shadeName, query) => {
-    //         const queryWords = query.toLowerCase().split(' ').filter(word => word.trim() !== "");
-
-    //         // Check if each word from the query is present in product name or brand name
-    //         const productString = productName.toLowerCase();
-    //         const brandString = brandName.toLowerCase();
-    //         const shadeString = shadeName.toLowerCase();
-
-
-    //         // Check if each query word exists in the product or brand name
-    //         return queryWords.every(word => productString.includes(word) || brandString.includes(word) || shadeString.includes(word));
-    //     };
-
-    //     // Filter products based on the search query
-    //     const filtered = allProducts.filter(product => {
-    //         return isQueryMatch(product.product_name, product.brand_name, product.shade_name , searchQuery);
-    //     });
-
-    //     setFilteredProducts(filtered);
-
-    //     // Paginate the filtered products
-    //     const indexOfLastProduct = 1 * productsPerPage; // since we are on page 1 after search
-    //     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    //     const currentProducts = filtered.slice(indexOfFirstProduct, indexOfLastProduct);
-
-    //     setProducts(currentProducts);
-
-    //     // Update totalPages based on the filtered products
-    //     const filteredTotalPages = Math.ceil(filtered.length / productsPerPage);
-    //     setTotalPages(filteredTotalPages); // Store the total pages based on filtered products
-
-    //     setLoading(false);
-    // };
-
-
-    // Menambahkan useEffect untuk handle pagination pada allProducts saat pertama kali dimuat
     useEffect(() => {
         const indexOfLastProduct = currentPage * productsPerPage;
         const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -154,12 +101,10 @@ const MainHome = ({ userId, setUserId }) => {
             const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
             setProducts(currentProducts);
-
-            // Update totalPages based on the filtered products
             const filteredTotalPages = Math.ceil(filteredProducts.length / productsPerPage);
-            setTotalPages(filteredTotalPages); // Store the total pages based on filtered products
+            setTotalPages(filteredTotalPages);
         }
-    }, [currentPage, filteredProducts]); // Update pagination if filtered products change
+    }, [currentPage, filteredProducts]); 
 
     return (
         <div>

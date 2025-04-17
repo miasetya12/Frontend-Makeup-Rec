@@ -16,7 +16,6 @@ const ProductDetail2 = () => {
     const [userRating, setUserRating] = useState(null);
 
     const serverIP = 'http://127.0.0.1:5000/';
-//    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
 
     useEffect(() => {
         const fetchProduct = async () => {

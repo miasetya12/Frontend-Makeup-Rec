@@ -7,9 +7,9 @@ import ScenarioOrder from './ScenarioOrder';
 const ProductRecommendationsDisplay2 = ({ recommendedProducts_2, onReset }) => {
     const [storedRecommendations, setStoredRecommendations] = useState([]);
     const [userRecommendations, setUserRecommendations] = useState([]);
-     const [evaluationResults, setEvaluationResults] = useState(null);
-     const [showScenarioOrder, setShowScenarioOrder] = useState(false);
-const [orderValues, setOrderValues] = useState({});
+    const [evaluationResults, setEvaluationResults] = useState(null);
+    const [showScenarioOrder, setShowScenarioOrder] = useState(false);
+    const [orderValues, setOrderValues] = useState({});
 
     const [orderData, setOrderData] = useState({
         first: '',

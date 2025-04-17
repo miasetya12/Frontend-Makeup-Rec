@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Swal from 'sweetalert2';
+
 
 const Header = ({ userId, setUserId }) => {
     const navigate = useNavigate();
@@ -9,9 +10,6 @@ const Header = ({ userId, setUserId }) => {
 
     const serverIP = 'http://127.0.0.1:5000/';
 
-    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
-
-    // Fetch user data based on userId
     useEffect(() => {
         const fetchUserData = async () => {
             if (userId) {
@@ -21,7 +19,7 @@ const Header = ({ userId, setUserId }) => {
                         throw new Error('Failed to fetch user data');
                     }
                     const data = await response.json();
-                    setUserData(data); // Store the user data
+                    setUserData(data);
                 } catch (error) {
                     console.error('Error fetching user data:', error);
                 }
@@ -35,8 +33,6 @@ const Header = ({ userId, setUserId }) => {
         console.log("Logging out...");
         setUserId(null);
         localStorage.removeItem('userId');
-
-        // Show logout success alert using SweetAlert2
         Swal.fire({
             title: 'Logged Out!',
             text: 'You have successfully logged out.',
@@ -49,7 +45,7 @@ const Header = ({ userId, setUserId }) => {
     
         });
 
-        navigate('/'); // Redirect to home after logout
+        navigate('/');
     };
 
     return (
@@ -67,12 +63,12 @@ const Header = ({ userId, setUserId }) => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/review">Buy & Review</Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link className="nav-link" to="/get-recommendation">Recommendation 1</Link>
-                        </li> */}
-                         {/* <li className="nav-item">
-                            <Link className="nav-link" to="/get-recommendation-2">Recommendation 2</Link>
-                        </li> */}
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/get-recommendation">Rec 1</Link>
+                        </li>
+                         <li className="nav-item">
+                            <Link className="nav-link" to="/get-recommendation-2">Rec 2</Link>
+                        </li>
                          <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation-3">Get Recommendation</Link>
                         </li>

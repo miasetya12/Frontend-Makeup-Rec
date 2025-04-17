@@ -15,9 +15,6 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
     const [loading, setLoading] = useState(false);  // Added loading state
 
     const serverIP = 'http://127.0.0.1:5000/'
-//    const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
-
-    // `${serverIP}/products`
     useEffect(() => {
         const fetchUserData = async () => {
             if (userId) {
@@ -72,7 +69,7 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
                 { cbfWeight: 0, cfWeight: 1 }               
             ];
 
-    const apiName = 'hybrid_tfidf2'; // Nama API yang sedang digunakan
+    const apiName = 'hybrid_2'; // Nama API yang sedang digunakan
      
     const recommendations = await Promise.all(
     weightConfigs.map(async (config) => {
@@ -94,7 +91,6 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
             },
         });
 
-        // Log the entire response data
         console.log('API Response:', response.data);
 
         if (Array.isArray(response.data.recommendations)) {
@@ -109,7 +105,6 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
                 };
             });
 
-            // Log for each weight config
             console.log(`Recommendations for cbfWeight: ${config.cbfWeight}, cfWeight: ${config.cfWeight}`);
             console.table(mergedRecommendations);
 
@@ -122,23 +117,18 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
 );
 
             const allRecommendations = recommendations.flat();
-
-            // Set semua rekomendasi dan update API/bobot yang digunakan
             setRecommendedProducts_2(allRecommendations);
-
-            // Pilih konfigurasi terakhir sebagai yang digunakan
             const lastConfig = weightConfigs[weightConfigs.length - 1];
             setSelectedApi({
                 api: apiName,
                 weightConfig: lastConfig,
             });
 
-            // Simpan di localStorage
             localStorage.setItem('recommendedProducts_2', JSON.stringify(allRecommendations));
         } catch (error) {
             console.error('Error fetching recommendations:', error);
         } finally {
-            setLoading(false);  // End loading
+            setLoading(false); 
         }
     };
 
@@ -162,17 +152,8 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
                         onMakeupPartChange={handleMakeupPartChange}
                         onProductCategoryChange={() => {}}
                     />
-{/* 
-                    {loading ? (
-                        <p>Loading recommendations...</p>  // Display loading message
-                    ) : (
-                        <ProductRecommendationsDisplay
-                            recommendedProducts={recommendedProducts}
-                            onReset={handleReset}
-                        />
-                    )} */}
 
-  {loading ? (
+                    {loading ? (
                         <div className="overlay">
                             <div className="spinner"></div>
                         </div>

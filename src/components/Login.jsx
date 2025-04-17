@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Swal from 'sweetalert2';
 import '../css/Login.css';
 
 const Login = ({ setUserId }) => {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
     const serverIP = 'http://127.0.0.1:5000/';
-    // const serverIP = 'https://clownfish-app-73v5y.ondigitalocean.app/';
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
