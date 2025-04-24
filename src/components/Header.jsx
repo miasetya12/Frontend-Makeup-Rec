@@ -63,12 +63,12 @@ const Header = ({ userId, setUserId }) => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/review">Buy & Review</Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation">Rec 1</Link>
                         </li>
                          <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation-2">Rec 2</Link>
-                        </li>
+                        </li> */}
                          <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation-3">Get Recommendation</Link>
                         </li>

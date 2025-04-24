@@ -29,7 +29,7 @@ const Review = ({ userId, setUserId }) => {
         const fetchReviews = async () => {
             if (userId) {
                 try {
-                    const response = await axios.get(`${serverIP}/reviews/${userId}`);
+                    const response = await axios.get(`${serverIP}/reviewsb/${userId}`);
                     console.log("Fetched Reviews:", response.data.reviews); // Log data review
                     setReviews(response.data.reviews);
                 } catch (error) {

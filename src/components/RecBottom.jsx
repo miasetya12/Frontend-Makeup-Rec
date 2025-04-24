@@ -157,8 +157,8 @@ const RecBottom = ({ product_id, userId }) => {
                 );
 
                 // Log untuk memeriksa kecocokan product_id
-                console.log(`Mencocokkan rekomendasi ID: ${recProductId}`);
-                console.log('Produk ditemukan:', productDetails);
+                // console.log(`Mencocokkan rekomendasi ID: ${recProductId}`);
+                // console.log('Produk ditemukan:', productDetails);
 
                 return { ...rec, ...productDetails };
             });

@@ -33,6 +33,23 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
     }, [userId]);
 
     // Fetch User Reviews
+    // useEffect(() => {
+    //     const fetchUserReviews = async () => {
+    //         if (userId) {
+    //             try {
+    //                 const response = await axios.get(`${serverIP}/reviews/${userId}`);
+    //                 const reviews = response.data.reviews || [];
+    //                 setUserReviews(reviews);
+    //                 console.log("User reviews detected:", reviews.length);
+    //             } catch (error) {
+    //                 console.error('Error fetching user reviews:', error);
+    //             }
+    //         }
+    //     };
+    //     fetchUserReviews();
+    // }, [userId]);
+
+    // Fetch User Reviews
     useEffect(() => {
         const fetchUserReviews = async () => {
             if (userId) {
@@ -42,12 +59,18 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
                     setUserReviews(reviews);
                     console.log("User reviews detected:", reviews.length);
                 } catch (error) {
-                    console.error('Error fetching user reviews:', error);
+                    if (error.response?.status === 404) {
+                        console.log(`No reviews found for user ${userId}`);
+                        setUserReviews([]); // kosongkan jika tidak ada review
+                    } else {
+                        console.error('Error fetching user reviews:', error);
+                    }
                 }
             }
         };
         fetchUserReviews();
     }, [userId]);
+
 
     // Fetch Product List
     useEffect(() => {
