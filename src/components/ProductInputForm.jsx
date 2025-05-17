@@ -222,8 +222,8 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
             }
 
             Swal.fire({
-                title: 'Success!',
-                text: 'Recommendations fetched successfully!',
+                title: 'Berhasil!',
+                text: 'Rekomendasi telah tersedia!',
                 icon: 'success',
                 confirmButtonText: 'OK',
                 customClass: {
@@ -257,7 +257,7 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
     return (
         <div className="input-form">
             <label>
-                Product Category:
+                Kategori Produk:
                 <Select
                     options={makeupParts.map((part) => ({
                         value: part,
@@ -265,14 +265,14 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
                     }))}
                     value={makeupPartInput ? { value: makeupPartInput, label: makeupPartInput } : null}
                     onChange={(selectedOption) => setMakeupPartInput(selectedOption ? selectedOption.value : '')}
-                    placeholder="Select Product Category"
+                    placeholder="Pilih Kategori Produk"
                     isSearchable={true}
                     classNamePrefix="custom-select"
                 />
             </label>
 
             <label>
-                Product Sub Category:
+                Sub Kategori Produk:
                 <Select
                     options={
                         productCategories.length === 0
@@ -288,14 +288,14 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
                         onProductCategoryChange(selectedOption ? selectedOption.value : '');
                     }}
                     isDisabled={!makeupPartInput}
-                    placeholder="Select Product Sub Category"
+                    placeholder="Pilih Sub Kategori Produk"
                     isSearchable={true}
                     classNamePrefix="custom-select"
                 />
             </label>
 
             <label>
-                Reference Product That You Like:
+                Referensi Produk yang Anda Suka:
                 <Select
                     options={productList
                         .filter(
@@ -310,24 +310,24 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
                     onChange={(selectedOption) => setSelectedProduct(selectedOption)}
                     getOptionLabel={(e) => e.label}
                     getOptionValue={(e) => e.value}
-                    placeholder="Search Reference Product That You Like"
+                    placeholder="Cari Referensi Produk yang Anda Suka"
                     isSearchable={true}
                     classNamePrefix="custom-select"
                 />
             </label>
 
             <label>
-                Additional Description:
+                Deskripsi Tambahan:
                 <input
                     type="text"
                     value={userDescription}
-                    placeholder="Ex: Matte Long Lasting Red Color"
+                    placeholder="Contoh: Tahan Lama Warna Merah"
                     onChange={(e) => setUserDescription(e.target.value)}
                 />
             </label>
 
             <label>
-                Top N Recommendations:
+                Jumlah Rekomendasi:
                 <input
                     type="number"
                     value={topN}
@@ -335,7 +335,7 @@ const ProductInputForm = ({ onSubmit, makeupParts, productCategories, onMakeupPa
                 />
             </label>
 
-            <button onClick={handleSubmit}>Get Recommendation</button>
+            <button onClick={handleSubmit}>Cari Rekomendasi</button>
         </div>
     );
 };

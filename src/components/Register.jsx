@@ -18,8 +18,8 @@ const Register = ({ onRegister }) => {
         // Check if all fields are filled
         if (!name || !username || !skintone || !skintype || !undertone) {
             Swal.fire({
-                title: 'Form Incomplete',
-                text: 'Please fill in all fields.',
+                title: 'Formulir Belum Lengkap',
+                text: 'Mohon isi seluruh informasi yang diminta',
                 icon: 'warning',
                 confirmButtonText: 'OK',            customClass: {
         popup: 'custom-swal',
@@ -40,8 +40,8 @@ const Register = ({ onRegister }) => {
             
             // Show SweetAlert success message
             Swal.fire({
-                title: 'Registration Successful!',
-                text: `Welcome, ${name}!`,
+                title: 'Registrasi Berhasil!',
+                text: `Selamat datang, ${name}!`,
                 icon: 'success',
                 confirmButtonText: 'OK',            customClass: {
         popup: 'custom-swal',
@@ -54,7 +54,7 @@ const Register = ({ onRegister }) => {
             // Show SweetAlert error message
             if (error.response) {
                 Swal.fire({
-                    title: 'Registration Failed',
+                    title: 'Registrasi Gagal',
                     text: error.response.data.error,
                     icon: 'error',
                     confirmButtonText: 'OK',            customClass: {
@@ -63,8 +63,8 @@ const Register = ({ onRegister }) => {
                 });
             } else {
                 Swal.fire({
-                    title: 'Registration Failed',
-                    text: 'Please try again.',
+                    title: 'Registrasi Gagal',
+                    text: 'Mohon dicoba kembali',
                     icon: 'error',
                     confirmButtonText: 'OK',            customClass: {
         popup: 'custom-swal',
@@ -82,10 +82,10 @@ const Register = ({ onRegister }) => {
         <div className="modal-background">
             <div className="login-container">
                 <form onSubmit={handleSubmit} className="login-form">
-                    <h2>Register</h2>
+                    <h2>Daftar</h2>
                     <input
                         type="text"
-                        placeholder="Name"
+                        placeholder="Nama"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -106,7 +106,7 @@ const Register = ({ onRegister }) => {
                             required
                             className="login-input"
                         >
-                            <option value="">Select Skintone</option>
+                            <option value="">Pilih Skintone</option>
                             <option value="Light">Light</option>
                             <option value="Medium Light">Medium Light</option>
                             <option value="Medium">Medium</option>
@@ -120,7 +120,7 @@ const Register = ({ onRegister }) => {
                             required
                             className="login-input"
                         >
-                            <option value="">Select Skintype</option>
+                            <option value="">Pilih Skintype</option>
                             <option value="Dry">Dry</option>
                             <option value="Oily">Oily</option>
                             <option value="Normal">Normal</option>
@@ -133,7 +133,7 @@ const Register = ({ onRegister }) => {
                             required
                             className="login-input"
                         >
-                            <option value="">Select Undertone</option>
+                            <option value="">Pilih Undertone</option>
                             <option value="Warm">Warm</option>
                             <option value="Neutral">Neutral</option>
                             <option value="Cool">Cool</option>
@@ -141,8 +141,8 @@ const Register = ({ onRegister }) => {
                     </div>
 
                     <div className="login-regis">
-                        <button type="submit" className="login-button">Register</button>
-                        <button type='button' onClick={handleBack} className="back-button">Back</button>
+                        <button type="submit" className="login-button">Daftar</button>
+                        <button type='button' onClick={handleBack} className="back-button">Kembali</button>
                     </div>
                 </form>
             </div>

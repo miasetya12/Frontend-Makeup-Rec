@@ -16,8 +16,9 @@ const Login = ({ setUserId }) => {
             localStorage.setItem('userId', response.data.user_id);
 
             Swal.fire({
-                title: 'Success!',
-                text: response.data.message,
+                title: 'Berhasil!',
+                // text: response.data.message,
+                text: 'Anda berhasil masuk',
                 icon: 'success',
                 confirmButtonText: 'OK',
                  customClass: {
@@ -29,7 +30,7 @@ const Login = ({ setUserId }) => {
         } catch (error) {
             Swal.fire({
                 title: 'Error!',
-                text: error.response?.data?.error || 'Login failed.',
+                text: error.response?.data?.error || 'Gagal Masuk',
                 icon: 'error',
                 confirmButtonText: 'OK',
                  customClass: {
@@ -43,7 +44,7 @@ const Login = ({ setUserId }) => {
         <div className="modal-background">
             <div className="login-container">
                 <form onSubmit={handleLogin} className="login-form">
-                    <h2>Login</h2>
+                    <h2>Masuk</h2>
                     <input
                         type="text"
                         value={username}
@@ -53,12 +54,12 @@ const Login = ({ setUserId }) => {
                         className="login-input"
                     />
                     <div className="login-regis">
-                        <button type="submit" className="login-button">Login</button>
-                        <button type="button" onClick={() => navigate('/')} className="back-button">Back</button>
+                        <button type="submit" className="login-button">Masuk</button>
+                        <button type="button" onClick={() => navigate('/')} className="back-button">Kembali</button>
                     </div>
                 </form>
                 <p className="register-link">
-                    Don't have an account? <span onClick={() => navigate('/register')} className="register-text" style={{ color: 'blue' }}>Register</span>
+                    Tidak mempunyai akun? <span onClick={() => navigate('/register')} className="register-text" style={{ color: 'blue' }}>Daftar</span>
                 </p>
             </div>
         </div>

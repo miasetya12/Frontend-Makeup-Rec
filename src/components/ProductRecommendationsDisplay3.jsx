@@ -85,7 +85,7 @@ return (
     <div className="recommendation-sec">
         <div>
             {/* <h2 >Here The Recommendations</h2> */}
-            <h2 style={{ marginTop: '50px' }}>Here The Recommendations</h2>
+            <h2 style={{ marginTop: '50px' }}>Rekomendasi untuk Anda</h2>
             
 
             {storedRecommendations.length > 0 ? (
@@ -122,7 +122,7 @@ return (
                     );
                 })
             ) : (
-                <p>No recommendations available. Please try again.</p>
+                <p>Tidak ada rekomendasi yang tersedia. Mohon dicoba kembali.</p>
             )}
 
         

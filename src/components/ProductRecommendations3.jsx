@@ -166,7 +166,7 @@ const ProductRecommendations2 = ({ userId, setUserId }) => {
         <div>
             <Header userId={userId} setUserId={setUserId} />
             <div className="main-page">
-                <h2>Product Recommendations</h2>
+                <h2>Rekomendasi Produk</h2>
 
                 {userData ? (
                     <>

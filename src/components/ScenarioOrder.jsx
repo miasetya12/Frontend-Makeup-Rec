@@ -3,14 +3,15 @@ import '../css/ScenarioOrder.css';
 
 const ScenarioOrder = ({ onOrderChange }) => {
   const [order, setOrder] = useState({
-    first: '',
-    second: '',
-    third: '',
-    fourth: '',
-    fifth: '',
-    sixth: '',
-    seventh: ''
+    pertama: '',
+    kedua: '',
+    ketiga: '',
+    keempat: '',
+    kelima: '',
+    keenam: '',
+    ketujuh: ''
   });
+  
   
   useEffect(() => {
     onOrderChange(order); // Call parent callback after state is set
@@ -36,14 +37,14 @@ const ScenarioOrder = ({ onOrderChange }) => {
 
   
   <form className="grid-container">
-    {['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh'].map((ordinal, index) => (
+    {['Pertama', 'Kedua', 'Ketiga', 'Keempat', 'Kelima', 'Keenam', 'Ketujuh'].map((ordinal, index) => (
       <div className="grid-item" key={ordinal}>
         <label>{ordinal}</label>
         <select value={order[ordinal.toLowerCase()]} onChange={(e) => handleChange(e, ordinal.toLowerCase())}>
-          <option value="">Select Scenario 1-7</option>
+          <option value="">Pilih Skenario 1-7</option>
           {[...Array(7).keys()].map(i => (
             <option key={i} value={`Scenario ${i + 1}`}>
-              Scenario {i + 1}
+              Skenario {i + 1}
             </option>
           ))}
         </select>
@@ -52,7 +53,7 @@ const ScenarioOrder = ({ onOrderChange }) => {
   </form>
 
  <div style={{ textAlign: "center" }}>
-                    <p><b>Setelah semua terisi, klik Save Evaluation</b></p>
+                    <p><b>Setelah semua terisi, klik Simpan Evaluasi</b></p>
                 </div>
     </div>
   );

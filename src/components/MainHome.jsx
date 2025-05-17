@@ -123,16 +123,16 @@ const MainHome = ({ userId, setUserId }) => {
             <div className="container-2">
                 {/* <h1>{userId ? `Hello, User ${userId}` : "Welcome to the Home Page"}</h1>
              */}
-                <h2>Popular Products</h2>
+                <h2>Produk Populer</h2>
                 <div className="search-bar">
                     <input
                         type="text"
-                        placeholder="Search by Product or Brand"
+                        placeholder="Cari berdasarkan produk/brand"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <button onClick={handleSearch} disabled={loading}>
-                        {loading ? "Searching..." : "Search"}
+                        {loading ? "Cari..." : "Cari"}
                     </button>
                 </div>
             </div>
@@ -155,14 +155,14 @@ const MainHome = ({ userId, setUserId }) => {
                     onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} 
                     disabled={currentPage === 1}
                 >
-                    Previous
+                    Sebelumnya
                 </button>
-                <span>Page {currentPage} of {totalPages}</span>
+                <span>Halaman {currentPage} dari {totalPages}</span>
                 <button 
                     onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} 
                     disabled={currentPage === totalPages}
                 >
-                    Next
+                    Setelahnya
                 </button>
             </div>
         </div>

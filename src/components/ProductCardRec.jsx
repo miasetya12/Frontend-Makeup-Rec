@@ -107,7 +107,7 @@ const ProductCardRec = ({ product_id, image, name, brand, shade, price, stars, i
                         textAlignLast: 'center',
                     }}
                 >
-                    <option value={0} >Give Order</option>
+                    <option value={0} >Urutkan</option>
                     {[1, 2, 3, 4, 5].map((num) => (
                         <option key={num} value={num}>
                             {num}

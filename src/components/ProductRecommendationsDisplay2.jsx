@@ -68,15 +68,15 @@ const ProductRecommendationsDisplay2 = ({ recommendedProducts_2, onReset }) => {
     onReset();
 
     // Show success alert after reset
-    Swal.fire({
-        title: 'Success!',
-        text: 'Recommendations have been successfully reset.',
-        icon: 'success',
-        confirmButtonText: 'OK',
-                    customClass: {
-        popup: 'custom-swal',
-    },
-    });
+      Swal.fire({
+           title: 'Berhasil!',
+           text: 'Daftar rekomendasi Anda telah berhasil direset.',
+           icon: 'success',
+           confirmButtonText: 'OK',
+                       customClass: {
+           popup: 'custom-swal',
+       },
+       });
 };
 
 const resetOrderCallback = (productId) => {
@@ -170,10 +170,9 @@ const handleSaveAll = () => {
         .then((response) => response.json())
         .then((data) => {
             console.log('Order saved:', data);
-
             Swal.fire({
-                title: 'Success!',
-                text: 'All recommendations and order have been successfully saved.',
+                title: 'Berhasil!',
+                text: 'Seluruh rekomendasi dan urutannya sudah berhasil disimpan',
                 icon: 'success',
                 confirmButtonText: 'OK',
                 customClass: { popup: 'custom-swal' },
@@ -185,7 +184,7 @@ const handleSaveAll = () => {
             console.error('Error saving order:', error);
             Swal.fire({
                 title: 'Error!',
-                text: 'There was an error saving the order.',
+                text: 'Terjadi kesalahan dalam menyimpan urutan',
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
@@ -196,7 +195,7 @@ const handleSaveAll = () => {
         console.error('Error saving all recommendations:', error);
         Swal.fire({
             title: 'Error!',
-            text: 'There was an error saving the recommendations.',
+            text: 'Terjadi kesalahan dalam menyimpan rekomendasi',
             icon: 'error',
             confirmButtonText: 'OK',
             customClass: { popup: 'custom-swal' },
@@ -217,15 +216,15 @@ const handleSaveAll = () => {
         const filledScenarios = Object.values(order).filter(scenario => scenario && scenario !== "Select Scenario 1-7");
         const uniqueScenarios = new Set(filledScenarios);
 
-        if (uniqueScenarios.size !== filledScenarios.length) {
-            Swal.fire({
-                title: 'Duplicate Scenario Detected!',
-                text: 'Please ensure each scenario has a unique value.',
-                icon: 'warning',
-                confirmButtonText: 'OK',
-                            customClass: {
-        popup: 'custom-swal',
-    },
+       if (uniqueScenarios.size !== filledScenarios.length) {
+                  Swal.fire({
+                      title: 'Duplikasi Skenario Terdeteksi!',
+                      text: 'Pastikan setiap skenario memiliki nilai unik',
+                      icon: 'warning',
+                      confirmButtonText: 'OK',
+                                  customClass: {
+              popup: 'custom-swal',
+          },
             });
             return;
         }
@@ -240,16 +239,16 @@ const handleSaveAll = () => {
             let updatedRecommendations = { ...prevRecommendations };
             const currentScenario = updatedRecommendations[scenarioNumber] || [];
 
-            const isOrderDuplicate = order && currentScenario.some(item => item.order === order && item.product_id !== productId);
-            if (isOrderDuplicate) {
-                Swal.fire({
-                    title: 'Duplicate Order Detected!',
-                    text: `Order ${order} is already used in scenario ${scenarioNumber}. Please choose a different order.`,
-                    icon: 'error',
-                    confirmButtonText: 'OK',
-                                customClass: {
-        popup: 'custom-swal',
-    },
+         const isOrderDuplicate = order && currentScenario.some(item => item.order === order && item.product_id !== productId);
+                if (isOrderDuplicate) {
+                    Swal.fire({
+                        title: 'Duplikasi Urutan Terdeteksi!',
+                        text: `Urutan ${order} sudah digunakan pada Skenario ${scenarioNumber}. Mohon memilih urutan lainnya.`,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                                    customClass: {
+            popup: 'custom-swal',
+        },
                 });
 
                 if (resetOrderCallback) {
@@ -303,7 +302,7 @@ const handleEvaluate = () => {
     // Pastikan ada 7 skenario
     if (Object.keys(userRecommendations).length !== 7) {
         Swal.fire({
-            title: "Warning!",
+            title: "Perhatian!",
             text: "Pastikan seluruh skenario sudah dievaluasi.",
             icon: "warning",
             confirmButtonText: "OK",
@@ -368,7 +367,7 @@ const handleEvaluate = () => {
 return (
     <div className="recommendation-sec">
         <div>
-            <h2>Here The Recommendations</h2>
+            <h2>Rekomendasi untuk Anda</h2>
             {storedRecommendations.length > 0 ? (
                 Array.from({ length: Math.ceil(storedRecommendations.length / 5) }).map((_, index) => {
                     const start = index * 5;
@@ -378,9 +377,9 @@ return (
                     return (
                         <div key={`scenario-${index}`}>
                             <div className="scenario-title">
-                                <h3>Recommendation Scenario {index + 1}</h3>
+                                <h3>Rekomendasi Skenario {index + 1}</h3>
                             </div>
-                                <p><b>Beri evaluasi dari kiri ke kanan </b>sesuai urutan <b>Order 1 hingga Order 5</b> (lihat tulisan di atas gambar produk).</p>
+                                {/* <p><b>Beri evaluasi dari kiri ke kanan </b>sesuai urutan <b>Order 1 hingga Order 5</b> (lihat tulisan di atas gambar produk).</p>
                                 <p>1. <b>Thumb up/down</b> → Cek apakah produk ini <b>relevan</b> atau tidak.</p>
                                 <p>2. <b>Order</b> → Atur ulang posisi jika urutan rekomendasinya kurang sesuai.</p>
                                 <ul>
@@ -393,13 +392,13 @@ return (
                                 <li>Apabila terdapat rekomendasi yang mirip di beberapa skenario, silakan abaikan dan tetap fokus menilai setiap skenario secara terpisah.</li>
                                 <li>Hindari mengklik produk saat mengisi evaluasi, karena hal tersebut dapat menghapus hasil evaluasi yang sudah dilakukan, sehingga Anda perlu mengulang pengisian dari awal.</li>
                                 <li>Jika mengevaluasinya tidak berurutan, mohon untuk di refresh kembali dan diisikan ulang</li>
-                            </ul>
+                            </ul> */}
 
                             <div className="product-grid-container">
                                 {productsInScenario.map((product, idx) => (
                                     <div key={`${product.product_id}-${start + idx}`} className="product-card-wrapper">
                                         <div className="product-card">
-                                            <p className="product-order">Order {idx + 1}</p>
+                                            <p className="product-order">Urutan {idx + 1}</p>
                                             <ProductCardRec2
                                                 product_id={product.product_id}
                                                 image={product.image_url}
@@ -421,28 +420,26 @@ return (
                     );
                 })
             ) : (
-                <p>No recommendations available. Please try again.</p>
+                <p>Tidak ada rekomendasi yang tersedia. Mohon dicoba kembali.</p>
             )}
 
-            {storedRecommendations.length > 0 && (
+        {storedRecommendations.length > 0 && (
                 <>
                 {/* <p>Setelah semua terisi, klik Get Evaluation Summary</p> */}
 
                 <div style={{ textAlign: "center" }}>
-                    <p><b>Setelah semua terisi, klik Get Evaluation Summary 2</b></p>
+                    <p><b>Setelah semua terisi, klik Rangkuman Evaluasi</b></p>
                 </div>
 
                     <div className="recommendation-sec-button">
-                        {/* <button onClick={handleReset}>Reset Recommendations</button> */}
                         <button className="evaluate-btn" onClick={handleEvaluate}>
-                            Get Evaluation Summary (2)
+                           Rangkuman Evaluasi (2)
                         </button>
-                         
                     </div>
 
                     {evaluationResults && evaluationResults.length > 0 ? (
                         <div className="evaluation-results">
-                            <h3>Evaluation Summary</h3>
+                            <h3>Rangkuman Evaluasi</h3>
                             {/* <p>Product Relevant Percentage = Percentage of product that you give thumb up</p>
                             <p>Product Order Percentage = Percentage relevance of the order of products in the system to the order according to you</p>
                             {evaluationResults.map((result, index) => (
@@ -472,19 +469,19 @@ return (
                             
                             ))}
 
-                             <h3>Order All Scenarios</h3>
-                             <ul>
+                               <h3>Berikan Rank/Urutan pada Seluruh Skenario</h3>
+                             {/* <ul>
                                 <li><p>Silakan tentukan <b>urutan skenario terbaik hingga terburuk</b> berdasarkan <b>ringkasan evaluasi</b>, apakah lebih menekankan pada <b>relevansi produk</b> dan/atau mempertimbangkan <b>urutan rekomendasi</b>.</p> </li>
                                 <li><p>Posisi <b>"First"</b> digunakan untuk <b>skenario terbaik</b> (berdasarkan <b>relevansi</b> dan/atau <b>urutan rekomendasi</b>), sedangkan posisi <b>"Seventh"</b> untuk <b>skenario dengan hasil paling kurang optimal</b>.</p></li>
                                 <li><p>Pastikan setiap <b>posisi</b> memiliki <b>skenario yang berbeda</b> satu sama lain.</p></li>
-                             </ul>
+                             </ul> */}
                         
                         </div>
 
                         
                     ) : (
                          <div style={{ textAlign: "center" }}>
-                    <p><b>Belum tersedia evaluation summary, Klik tombol Get Evaluation Summary untuk melihatnya</b></p>
+                    <p><b>Belum tersedia rangkuman evaluasi, Klik tombol Rangkuman Evaluasi untuk melihatnya</b></p>
                 </div>
                     )}
                    
@@ -495,7 +492,7 @@ return (
 
 
                         <div className="recommendation-sec-button">
-                            <button onClick={handleSaveAll}>Save All Evaluation</button>
+                             <button onClick={handleSaveAll}>Simpan Evaluasi</button>
                             {/* <button onClick={handleReset}>Reset Recommendations</button> */}
                         </div>
                     )}

@@ -58,7 +58,7 @@ const Review = ({ userId, setUserId }) => {
             <div className="main-page">
             {/* <h2>Hello, User {userId}</h2> */}
             <div className="container-3">
-             <h3>Your Products Review (User {userId})</h3>
+             <h3>Produk yang Sudah Anda Nilai (User {userId})</h3>
             </div>
             <div className="product-grid">
                 {reviews.length > 0 ? (

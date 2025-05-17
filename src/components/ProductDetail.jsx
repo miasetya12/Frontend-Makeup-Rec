@@ -13,6 +13,8 @@ const ProductDetail = () => {
     const [message, setMessage] = useState('');
     const [hasRated, setHasRated] = useState(false);
     const [userRating, setUserRating] = useState(null);
+    const [productStats, setProductStats] = useState(null);
+
 
     const serverIP = 'http://127.0.0.1:5000';
 
@@ -56,6 +58,20 @@ const ProductDetail = () => {
         fetchUserRating();
     }, [product_id, userId]);
 
+        useEffect(() => {
+            const fetchProductStats = async () => {
+                try {
+                    const response = await axios.get(`${serverIP}/product_stats/${product_id}`);
+                    setProductStats(response.data);
+                } catch (error) {
+                    console.error('Error fetching product stats:', error);
+                }
+            };
+
+            fetchProductStats();
+        }, [product_id]); // hanya dijalankan sekali saat product_id berubah
+
+
     const handleRatingChange = (e) => setRating(e.target.value);
 
     const handleSubmitRating = async (e) => {
@@ -98,7 +114,7 @@ const ProductDetail = () => {
         <div>
             <Header userId={userId} setUserId={setUserId} />
             <div className="main-page-detail">
-                <button onClick={() => navigate(-1)}>Back</button>
+                <button onClick={() => navigate(-1)}>Kembali</button>
             
                 <div className="kiri_umum">
                     <div className="kiri">
@@ -108,7 +124,7 @@ const ProductDetail = () => {
                     <div className="rate-section">
                         {hasRated ? (
                             userRating !== null ? (
-                                <p>Your Rating: {userRating}</p>
+                                <p>Rating Anda: {userRating}</p>
                             ) : (
                                 <p>Loading your rating...</p>
                             )
@@ -134,7 +150,7 @@ const ProductDetail = () => {
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                                <button type="submit">Give Rating</button>
+                                <button type="submit">Beri Rating</button>
                             </form>
                         )}
                     </div>  
@@ -144,7 +160,16 @@ const ProductDetail = () => {
                     <h2>{product.product_name}</h2>
                     <p><b>{product.shade_name}</b></p>
                     <p>{product.product_description}</p>
-                    <p>Price: {product.price !== undefined ? `${product.price}` : 'N/A'}</p>
+                    
+                    
+                    {productStats && (
+                    <div className="product-stats">
+                        <p>💰 Harga: {product.price !== undefined ? `${product.price}` : 'N/A'}</p>
+                        <p>⭐ Rata-rata Rating: {productStats.avg_rating.toFixed(1)}</p>
+                        <p>📦 Total Terjual: {productStats.total_sold}</p>
+                    </div>
+                )}
+
                 </div>
             </div>
 
@@ -153,7 +178,7 @@ const ProductDetail = () => {
                     <RecBottom product_id={product_id} userId={userId} />
                 ) : (
                     <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                        <p>Please <button onClick={() => navigate('/login')} style={{ textDecoration: 'underline', background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}>Login</button> to see recommendations.</p>
+                        <p>Mohon untuk<button onClick={() => navigate('/login')} style={{ textDecoration: 'underline', background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}>masuk</button>/<button onClick={() => navigate('/register')} style={{ textDecoration: 'underline', background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}>daftar</button>terlebih dahulu untuk melihat rekomendasi</p>
                     </div>
                 )}
             </div>

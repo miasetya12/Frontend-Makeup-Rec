@@ -140,7 +140,8 @@ const ProductRecommendations = ({ userId, setUserId }) => {
         <div>
             <Header userId={userId} setUserId={setUserId} />
             <div className="main-page">
-            <h2>Product Recommendations 1 (Lakukan sebanyak 2 kali)</h2>
+            {/* <h2>Rekomendasi Produk 1 (Lakukan sebanyak 2 kali)</h2> */}
+            <h2>Rekomendasi Produk</h2>
 
             {userData ? (
                 <>

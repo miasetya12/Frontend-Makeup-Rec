@@ -176,7 +176,7 @@ const RecBottom = ({ product_id, userId }) => {
 
     return (
         <div className='rekomendasiBawah'>
-            <h2>Maybe You Like It</h2>
+            <h2>Mungkin Anda Suka</h2>
             <div className="product-grid">
                 {loading ? (
                     <div className="overlay">

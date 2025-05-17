@@ -34,8 +34,8 @@ const Header = ({ userId, setUserId }) => {
         setUserId(null);
         localStorage.removeItem('userId');
         Swal.fire({
-            title: 'Logged Out!',
-            text: 'You have successfully logged out.',
+            title: 'Keluar Berhasil!',
+            text: 'Anda telah berhasil keluar dari akun',
             icon: 'success',
             confirmButtonText: 'OK',
                         customClass: {
@@ -58,29 +58,29 @@ const Header = ({ userId, setUserId }) => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Home</Link>
+                            <Link className="nav-link" to="/">Beranda</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/review">Buy & Review</Link>
+                            <Link className="nav-link" to="/review">Riwayat Penilaian</Link>
                         </li>
                         {/* <li className="nav-item">
-                            <Link className="nav-link" to="/get-recommendation">Rec 1</Link>
-                        </li>
-                         <li className="nav-item">
+                            <Link className="nav-link" to="/get-recommendation">Dapatkan Rekomendasi</Link>
+                        </li> */}
+                         {/* <li className="nav-item">
                             <Link className="nav-link" to="/get-recommendation-2">Rec 2</Link>
                         </li> */}
                          <li className="nav-item">
-                            <Link className="nav-link" to="/get-recommendation-3">Get Recommendation</Link>
+                            <Link className="nav-link" to="/get-recommendation-3">Dapatkan Rekomendasi</Link>
                         </li>
                     </ul>
-                    <ul className="navbar-nav ms-auto">
+                    <ul className="navbar-nav ms-auto align-items-center">
                         {!userId ? (
                             <>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/login">Login</Link>
+                                    <Link className="nav-link" to="/login">Masuk</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/register">Register</Link>
+                                    <Link className="nav-link" to="/register">Daftar</Link>
                                 </li>
                             </>
                         ) : (
@@ -98,7 +98,7 @@ const Header = ({ userId, setUserId }) => {
                                 )}
 
                                 <li className="nav-item">
-                                    <button className="btn btn-outline-danger" onClick={handleLogout}>Logout</button>
+                                    <button className="btn btn-outline-danger" onClick={handleLogout}>Keluar</button>
                                 </li>
                             </>
                         )}
